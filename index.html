@@ -7,19 +7,20 @@
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 <style>
-* { box-sizing: border-box; }
-body { margin: 0; padding: 0; background: #f7f3ee; font-family: serif; }
-#root { min-height: 100vh; }
+*{box-sizing:border-box}
+body{margin:0;padding:0;background:#f7f3ee;font-family:serif;-webkit-tap-highlight-color:transparent;}
+#root{min-height:100vh}
+button{-webkit-appearance:none;touch-action:manipulation;cursor:pointer;}
+input,textarea{-webkit-appearance:none;}
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script>
-(function() {
-'use strict';
-var useState = React.useState;
-var useEffect = React.useEffect;
-var useRef = React.useRef;
+(function(){'use strict';
+var useState=React.useState;
+var useEffect=React.useEffect;
+var useRef=React.useRef;
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 var _excluded = ["width"];
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i.return) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
@@ -310,7 +311,7 @@ function _saveData() {
         case 2:
           _context2.p = 2;
           _t2 = _context2.v;
-          console.error("Firebase save error:", _t2);
+          console.error("Save error:", _t2);
         case 3:
           return _context2.a(2);
       }
@@ -615,15 +616,15 @@ function App() {
     saveData(d);
   };
 
-  // Load from Firebase on mount + poll every 5s for admin panel
+  // Load from Firebase on mount + poll every 5s
   useEffect(function () {
     loadData().then(function (d) {
-      setAppData(d);
+      if (d) setAppData(d);
       setDataLoaded(true);
     });
     var id = setInterval(function () {
       loadData().then(function (d) {
-        return setAppData(d);
+        if (d) setAppData(d);
       });
     }, 5000);
     return function () {
@@ -1348,11 +1349,24 @@ function App() {
       padding: "0 20px 20px",
       textAlign: "center"
     }
-  }, !rsvpDone && /*#__PURE__*/React.createElement(PBtn, {
+  }, !rsvpDone && /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
       return setScreen("rsvp");
     },
-    colorIdx: 0
+    style: {
+      border: "1.5px solid rgba(220,130,150,0.6)",
+      borderRadius: 50,
+      padding: "13px 28px",
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 17,
+      letterSpacing: 2,
+      cursor: "pointer",
+      background: "rgba(255,182,193,0.45)",
+      color: "#7a3040",
+      WebkitAppearance: "none",
+      touchAction: "manipulation",
+      backdropFilter: "blur(6px)"
+    }
   }, "\u041F\u041E\u0414\u0422\u0412\u0415\u0420\u0414\u0418\u0422\u042C \u0423\u0427\u0410\u0421\u0422\u0418\u0415 \u2705"), isYes && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
@@ -1506,10 +1520,22 @@ function App() {
       gap: 10,
       marginTop: 4
     }
-  }, /*#__PURE__*/React.createElement(PBtn, {
+  }, /*#__PURE__*/React.createElement("button", {
     onClick: handleYes,
-    colorIdx: 2,
-    style: {}
+    style: {
+      border: "1.5px solid rgba(80,180,100,0.6)",
+      borderRadius: 8,
+      padding: "15px",
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 17,
+      letterSpacing: 2,
+      cursor: "pointer",
+      background: "rgba(152,251,152,0.40)",
+      color: "#1a5a2a",
+      WebkitAppearance: "none",
+      touchAction: "manipulation",
+      width: "100%"
+    }
   }, "\u2705 \u0411\u0423\u0414\u0423!"), /*#__PURE__*/React.createElement("button", {
     onClick: handleNo,
     style: _objectSpread({
@@ -2459,13 +2485,11 @@ function App() {
     }
   }, "\u0412\u0418\u041A\u0410 & \u041A\u0410\u0422\u042F \xB7 2026"))));
 }
-
-try {
-  var container = document.getElementById('root');
-  var root = ReactDOM.createRoot(container);
-  root.render(React.createElement(App, null));
-} catch(e) {
-  document.getElementById('root').innerHTML = '<div style="padding:40px;font-family:sans-serif;color:red"><h2>Ошибка</h2><pre>' + e.message + '</pre></div>';
+try{
+  var root=ReactDOM.createRoot(document.getElementById('root'));
+  root.render(React.createElement(App,null));
+}catch(e){
+  document.getElementById('root').innerHTML='<div style="padding:40px;color:red;font-family:sans-serif"><h2>Ошибка</h2><pre>'+e.message+'</pre></div>';
   console.error(e);
 }
 })();
