@@ -8,10 +8,10 @@
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 <style>
 *{box-sizing:border-box}
-body{margin:0;padding:0;background:#f7f3ee;font-family:serif;-webkit-tap-highlight-color:transparent;}
+body{margin:0;padding:0;background:#f2ede8;-webkit-tap-highlight-color:transparent;}
 #root{min-height:100vh}
-button{-webkit-appearance:none;touch-action:manipulation;cursor:pointer;}
-input,textarea{-webkit-appearance:none;}
+button{-webkit-appearance:none;touch-action:manipulation;}
+input,textarea{-webkit-appearance:none;font-size:16px;}
 </style>
 </head>
 <body>
@@ -22,7 +22,6 @@ var useState=React.useState;
 var useEffect=React.useEffect;
 var useRef=React.useRef;
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-var _excluded = ["width"];
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i.return) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
@@ -34,8 +33,6 @@ function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t =
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function _objectWithoutProperties(e, t) { if (null == e) return {}; var o, r, i = _objectWithoutPropertiesLoose(e, t); if (Object.getOwnPropertySymbols) { var n = Object.getOwnPropertySymbols(e); for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]); } return i; }
-function _objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; var t = {}; for (var n in r) if ({}.hasOwnProperty.call(r, n)) { if (-1 !== e.indexOf(n)) continue; t[n] = r[n]; } return t; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -47,6 +44,23 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 var P1 = "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",
   P2 = "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCADIAMgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwCKf5oYG9YxUS1Ix3WVsf8AZxTF9KzuWSrUo5qNfrUqUASLWX4muGt9FlKEguQua11FZXia2M+hT46ph/yoGjzdOCT71v6dtlhOT1GKwVUk4HetLTJmh+90ziipHQ1pvU6Czt49gVhzWgdNjmiYhecHnFV7Ehlx3JzXRWluzgBMDOAT7VzXdzptoc3HoMzrhlOOvNIuglGIIztPpXfSxRi3KLgHGM1RdBncVGc1d5CsmZmg2f2fU5fePp+NdQBWRpag3c7j+EBa2BmtI7HNU+IeoqRQDUYJqRaszHDrS5xIPpQOaP4h+NACT87eMcGoixZEAPQVJL2qADAzjik2NCXEKz2UsTHAZDz6VzqWUYGS24V04+ZSMdq5Dzp/NKhsHODS16BI6vU7YTaJbbiTs2HI+mKwntoguOT681vzP5nhNG3kkKAXHGcNiuUeeRg580cY4FNkXLS28GdoH60VniZlbcJeMc0VNmO41c/2bAT2JFNWnQfNpSd8OaaoPSmBKoqZR3qJamWmBMORxSyRLcQPE4+V1Kn8aRKlX0oGeS3cBtL2WA8+W5Wu4/sW2utCju7WNSAoZSOG/wDr1X8T+GpLqU31km6Rv9ZGO/uKx9N1zUfDTyWk0IeMjJhl7Z9PrRNcy0NackjrtJiS6t1yg3CtdGSE7drBvSud8PX+9vNwBuOSPSuwKWt/AI7hAR2NYnV0uUo7p5pCEiYgHBORVK8uZhdeQsUjcclRmtxFhsYFitogEB7VEwie4nmzgFRzjHNMkg0i3FvFIMsWLAsW9cVqDoK5+DW7S1EiSl9/mHouc1pw6xYSoGFygz0DcGrT0MKlOV72NBalAqGF0lTcjqynuDmrAFUZCgUh+8v1p4pCOV+tMQ2X7o+tVmlWNMNn5jgYq3IuU49aqsismwjJJzmpZUdxYSW9QO+a5m8AivrhAf8Alo3autghYIuRz2rE13TDbzi6C7o5j+IbuKUBzLlqVu/B1xHu5QPn6g5rjfkG7ls/Wuz0GInRL6EggNnjvytcl9mLE5TPpzWmhkyNAnDbOPdqKti2aNNxhyOmD3opaEkVgM6W49GBox1pdOz9hnX0xR3xUlj0FTL0qNR0qVRimBKgzUo4qJSAMnpWZd+IbWAmGFxLPnAUUDSbdkbRdUUs5CgdSTXKX2m2vibxFCsNwsSbNsjnjdg9FqMpLdStNPM7FuwbgD6U9bUJ93kVPNY9CngZNXkbFz4cbQnD225rYgdeStWra7KjGelZ1tql9bIEWdnj7xy/MP1rStL/AE2UbbqAwMf4lG5f8RWcld3NlQnTjZq5oQ6htkWIkR7wSHbpTDbS3GoLDNcqsTqWJ6ZA6gVV1JrFbVZILyJ2jYNtBOSPYViT6vLdGPdtUI2wnPPscVOqZlyNvQdfrHPeTSxqojZ/kx6dqj8jlSQcVMF+T6Gn9cc1Z6SguU0tNvjZHBAMbfeH9RXVRurxB0OVIyDXERIXbg9K7KyAFhDjBGwVotjysZTSfMicUp7fWkFOPApnCDD5KIYgze4qTblD9as2cGWyaGrjT1HiD5VHtVXUbXzLKVeWPDAemK3HjGwEdhVe7QvCQgy4UjjvxSsNsx9Dtj9muQSM8Dj6GscaTKhyVOOuQK6fQXHnSxMACUzV2K9t41KtAJCKrlIbOHuLGRBgkAnnBorrbi70mZisluUc9MDNFV7NdyefyPMNN/5eU/2T/OgY3d6NPIF9Mo6MGGKD1rMomXp7VKtQIeKnWmBU1hpU0e5aEkOqcEV5xbzGO5Rzyd3Jr1VkEkbI3IYEGvKbmP7PeSxj+ByP1pouLs7naQkPEpyBx1qYK4+9g47is6wlzbIWOMiryTlhhFJHqaxZ9FTd4pki4P170uO2aVTnk4BpwAbkUGg3YG61WOmyTsXQgIDgmtCKF5pUjjG5nIAFdBDpDabKsTMXXqpI9aTObEVVDTqYEFleCBGeMcjpuGaiXduweCOK7Ce0xHuGAp+8K5+9tlim80Yw3BA9aLmdGu5OzI4RsGASTW5p2oLCvkzNhDyD6VixcjAyB7U5zwMY/OriVWpKorHYqc4NSfw1kaNfCeEQOcSoOh7itgD5Tz2qzxZwcJOLLEaFhit/TdPV0DOOKybdMkV1doFjtl6CrRm2VrqyiSIkZGPesuKItL64PWtW6Ic5zkVFBCVl3L37UNAtjOhsHi1TfGuEdT0HSqkunXSSs5RiNx612CrwMjmlwMUWFc8/ubQkMSpGTzgdKK7G8sBNG4UDJHfvRRyhzHhNmcaow/2j/KpGyHI96htTt1PJ/vA/pU0wxOw9zWYx69KmXFQrzUi0AWBXlur4/te6wc/vDXqKV5frUTRaxcqwIO8kU4lI2tJi822R3PyqOBWvGpkGVGF965zR7wGNYHO3B/OumhbentWb3Pfw0k4KwuABkD8asRx/MM5C+1VpW3YUZ65NXVlXyAAOcdaDSdzpfDC2/wBouECLuwGQnqB3Fb17AJIww4KHOfauK0q+Szu4ZstwSJM91NdrNeQLbea0i+URnd2IoPJxUJKopLqch4n1RoIRbQyYlfj6CuesbhZcozHceck9/ep/EnkzasJbVtySJzxwCPSsmKJpbuLY2xm6n0NRbU6oLkp3OiVotpVmYuP4R0pCFk3CM4K9jU1jqyWb+UQpcjDF0yAfr3qzcWy30Mk5i8mSMbtw4Eg/xq0yVXdx3h5Wkvndhjy0/U11aDK1y3hhJWmnkJJjxtB9TmuvhTitEcOJleoy5bMFjOeuMitCS+K2y4OCPSsyMYQGpV2yQ8+tWjmLUEvmrkucZ5q9blVlBDtisyKdYyEAxzU5uSoOCOmeKuyEb6OrDh804sB1Irn4ropKfmzmrnzSKp3cGkKxpn5hx0orK1C/EcZiVsHGPc0UgseEwEi+LZ7Kau3Ixct7mqCMRdofVB/OtC8GJ+nUA1iWNWpUOahWpk45zTAmQ1zfi/SRNbC/jX504fHcV0ampGRZYmjcZRhgii9gPJIZPKlDZ4711tjdb4h83BFYGs2Mdnq0tvA29QePbPate0sBFEm12RgBkdQTSn3PSwMpXdtjVjI5z1qeKVVYFhkDtVJIpMcstTJCcjL/AKVB6jTaLmWA8xQFHbNSrNL5IiLsYwchc8VBGuPUketS9qYlDuV71Rsjc9mxmqEJEV6rSMAmecdcVpSr5kTJ1yOKzpNnlh2TcD1x1FS9yasbo3xZ7reN40XhdwIOdwrVgddQsjaSMVZcFfUr6f0rB0i/UaLJHcsyGCTCkeh6D86uyxTQxxXIcbs569R70RR5NSXLudZZJCluqQqFReMehrTiZR1NYWkoBb+aH3CQ5xnp7Vqq3Fao5J76GkhQqOeKrs+xW2+tRRucZHrUUkxEbEjNWQO+0MZTz0OcVNBOzgjPLDpWat6hkIVQSOv0rQtHimZ1AG9kO0nsRVJgbem6f5n7w7lANbMsYSE7cLgdcdKis7iE26gHaAO/FMu9Tt7dBuY/NwMDrQyTkdW1Au5HARe/dz60VXuLNrjaVcADIPaioaZR5l0mhbthhWndnd5beqisxf3hgAGWLkAfUVoXIIt4SQeBioQxqnpUqmoEPGanUgigCZeKW5n+z2skufuKTTVJxiqusbv7HutvXYaYzgIZmuNUEz/MWfca6eJgRkA1ydiwS8jPXmuuhPGRUzPWwGzJVYg9DUqvjHBpgOT70bsVJ6JYWQgfdNSc7e2frVYMeuKmDcZai4DtnOWb8qqXCoshjCkK/I+verW8nhR+NVL1JGh3p/rYiHQ+4pPUifwuxuWvhSaTQ3mZwHA3bAfvYPet+a0je0Tag27QRjml8NajHfaZDKmMMvzD375q2tt5TvCWJVfmQE/wn/OKqHunz1aUpN3MnR5fs08lm5OCcp/hW6r4+lc/qcTIRcRqRsPJWtSxulvLRJkPUcj0PerM0zShPzH0zVS7ciKYDtmpYm2k/Wql225Zvxp3Az7ctnc3BFSi5eGQbT071VjZpGMSkDJ6+lRSmSB/LkPzE9c/lVxeuombL6rIirGpdu5ANX1n3QK7t8pA965OOR5HRPmUlsH1FbkLuhCO3mKDwSMc1MpajjEknvZohO2wrCsZwx6E0VT127li0icvGpBG0kN60UwOChfMQYHlGVga2XHm6fGc9GNclZatbNaNmQK2zBUnBrcinaSILvIUgEYNZATqccdxU6nOKr5bAOQfrSrJg8g/hQhl1W9qWdRPbyRkcMpFQpIp/i/Oi4uEitJZCwACnnNMDzRlaK62D7yvj9a66HIjXcecVylsjXV/nOcNuNdWHQRBdrE9Qc0TPTwV1dkw9sinBsdqjVgVC7R1696nBZfk984xUHoc49c4LBSRUiozKSFPFROXQ7RnB9+tOO4KuHU5HIHrU6i5myzEgIbcQCBkVHuX5lIJz09BSAkIpznjnip7S0lvZVhRVBHO5j2p2uS3pdi+GrxtL1qSwkOIpvnjB9e4ru7z57YXKLveHkqO47ivNtUgkt5PNU4mtnyG9cV3emX39paOk0JG8rnHv3FUldWPJxUOWXMuox5Y9QtFlT5UcfdPb1FZWmSNp+pSW7n9zKRt9m/+vWtZWgiknjDHY5EiIR0B9PxqrqthwHUc1otUcT0ZrxtyRVW7IBl+mf0qPTroXNuHz868N9add9H91qSzEtZD9p3biOpq/qsbSRebEMyJycdcVixSFZ9mOB71vxM7BW7FRV3EYlpK6sZCxyCD+tb8U3moGwBnkYqjdWG7EiD5h1GODUlgjxiRWYlc5A9PWpkr6lJlTxPOYtGdTyWYAk9+9FUvGEga0to+QCxOfWirQrHj+4461Yg1e/t12R3DbcYAPOKrhflFATIo0HY1ofE9/ERuKSAdmXH8q0ofF8bY8+2YH1Rs/pXKlCKTaaVkFjvbfxJpsowZyn++CKfrLx3ujSm2lRiBu+Rs5FcBg0m4r90kH2NHKFjQ0uYw38eGwGO05967uwsJr9SY5I1MZwQRXm9ox+2Rc/xjrXp1or2giuUIYEhZ1P8AOpmtTtw02ouxDBH5l4sU7lQW2kgdK0r7To4EjaOZpWJwc/pWjdaZa3NuzxIqyH51de5p+jXDvCYZ8tInO49xUWN3iXbmj06FXRY7Ulo7mKMuGBXecGpdQ0W5e4kngRAn3goP9Km1a3hzHcbtsoOAF6mr9tqkP2KOSZ8sSVJA6/hTsS60vjh1IrYRatYPHGY0fAD4XBB/zmqkunTaUyXEOJezLiktNRt/7a/cYCysQQvfjqeKv32r2y2zIMlm42le3ei4XqRlypaMmntbXUtOJZVCkbs46etc7o9xNoj3cSo8sEZ3AjtnpUj6wsdg0KOwdmbAU9j61zV9cXMcXmwOUxwwz94UmyXQfK1I2X8UX665FcTN+6jODGvQoa62fV9Nn+X7UXXglo0LBfqRXnG+3cpNKcLtDN9PQe+at2WrzTWjWakpEp4Krh8Z6D1ojI4pwXQ6S3lhsNZlVJ1a2nbAIPGexrcn6jcOorm9N8PWzyw3EsUiFDvHmvlmPbPoPaugmJ8wDPaqM7WOcdPLuy6Hp1/GtqJ2Ma9cgYNZZx9qcsMYPHvV0SnYGU8EdjQhsuO3AyfeqcRwHkHdulQSzlRsyTn1pkDl7ck8ZOaKj90cF7xz/i26JvIIz/ChJH1orN8SyGTWWwchVAoohsinucOhwO9SLg1EvAqQMOg61TBD+KaQD2oxz1p3AAouMjEJJpDFjpzUpJNB4B4ouFirC3lzocdGFehwao/kBAfkIBxuPFeduMP6V09jdwTwoQxLKuGXPQ0TN8K1dpnY/wBvlLVIo5FLBMHKnk1VtdW+zTNLtJyu3gfrWJG6qTxkVKkpT5gv5isrnaqcUnoac+oy3TAeZJjHAZs4qMXF0sYiDlVB6A4qtBHLN/q42LdtozWlb6Fqk4ybdlz0LELRcpuMdCsmVlB8zp3zT3mkkcBpNwHcnNaSeFb3o0kIJ9Sali8J3gJHnQ898nigXt6fcyjs3fJk98mpYNPm1HcEDEH75xwBXRWvhi3tcPeXO8/3V4FX5pFitzFaoIlwQML/AEpJXMKuJVrQ1OPt/CjNKGmnVolOQu3mukstPs9PGYbZQ394cmuMg8ZXsMzRXFvFKqsVJGUPFatt400+QhZhLCfddw/MU7M4DrEm3TDCsOOpFR3Dn7QCThdv9ao22tafcMBFeQkk9N4FN1i/trVN884QY45p3Ekc3da/cW+oXEJSN1WQhc8HrU9v4hUxjzYmXnkqa5iZ/tN7LKhyHcsMnnFPQSMQoUknpjvTvY19nFo60atZzEMZirDjDDFblrA01spXKIR/EKzdA8Ox2qLdXihpzyqHkJ/9eukLDGT0oeu5k7J6HlWuAf23dAc4fFFVdRl83U7l/WRj+tFUhnMAk1IAO9UvPIPFKJTTAulh0pCQOhqmZiKb5zUrFJl7fzSrJVFZTT1lOaLDuizIA1O065Wx1COaRN6A/MvqKqtNxULyZHXpVIiXdHr9guk3UImTTnIbkjb0/WtSEWKEBNKIPqUA/nXLeGL9JdOhyeQuMg8104kLj/WEj61m0WpSfUo6z4uOilI4rBCXBwd2APyrlLjx/rk8h2SRQKeyJnH4mpPGEg+2Qr6IeK5dgCc5wfahC5TVfxLrbnJ1O4z7Nitrwtr99cakYbq6nlDrwGkPFccAc5zWjoc32XWbZ26F9p+hqnawWPY0CEbt3brnNLIwCHAyajtXzGP0qSb7hNZjPJNdTyNcu1Gcb92PrzWb5jbulbniXa2u3G3qMc/hWOIix5NUmFhnmE9MfWpfMZ/vsxI6ZNAj29qTYc9qq6YcpZhQyMqqGLt0xXa+H9JSx23Fx80/YE8L/wDXrD8LW6tcSykAtGAAPr3rrOahik+hrJdYIPB56GlmuQIpGz0UmsreVqG7uCtpMc87D/KmQeezMTM7HkliaKaRuce5oqrjSOWPWnBvemnpSCqEOJJpKMZpwFIYq9ad0pMUuaAAionGDTi3OKDyKEBt+Hr54f3W48HIrtLTU2bAJx9a8601zHcBugHBrqoZ1ePecjHXdxUyuVGxJ4smVzbSKAQMgv6n0rnByM1c1i4NxEVDhhHg9fWsy3kGMGjoNb2LIHtTxlZY2B5DCkDDtTtok2qDgsQAScYNTctrQ9hsJd1rGxBBKjINWJmyh5xVHSYZYdPgSWQswQZOc5qxfuYraRwMlVJGBQQeW65OH1m6Of48ZHtVSKTjg5PvTZiZpXdhyzEmmFCpyvSgq1i0JQvUUhwehpi8rnb+VOVC2CDxSGXdLvn067E6jdG3yuvqK7i2uobuISwOHU+nb61wI24xiprWea1l8y3mKP3x0P1FFxOFzvc89Kq37YsJ/wDrmazLXxGrALdRbT/fj5H5VYv9StJNOuAlxGSUPGcGnczcWjkIBuuEX1YUU/TSst9GFYNg560VE58rsa043RyO3JpNuOnNFFb3MR4U+lB4oooAQnigZFFFACNzSqc8d6KKALcMcscRcAFeMirv2p5FjhwAvcDvRRQyorciu2iS38pOXJyzZ/Ss9JCpzRRSQPQvwy7gM1dsSG1G1B6eYM8Z4oopRWti5P3bnq1ndW7fuo5BvA+7VLXL8eQbWJ8zS/IMN0ooqnFXMVN2POCCHIb1waeidu1FFZM6UP8AKKDI59qawwTjoaKKQMapZWxk4qQSEHHFFFAIcH5wCaSZiYm5GKKKFuD2JvD0Qa/LADKrRRRXNiW+cql8J//Z",
   P3 = "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";
+var DB = "https://birthday-vika-katya-default-rtdb.europe-west1.firebasedatabase.app/rsvp";
+var PIN = "2706";
+
+/* ── palette ── */
+var C = {
+  bg: "#f2ede8",
+  // мятая бумага
+  card: "#faf7f4",
+  ink: "#1a1a1a",
+  mid: "#666",
+  soft: "#aaa",
+  line: "#ddd",
+  red: "#c8102e",
+  btnBg: "rgba(255,255,255,0.7)",
+  btnBorder: "rgba(0,0,0,0.18)",
+  btnText: "#1a1a1a"
+};
 var WL = {
   vika: [{
     id: "v1",
@@ -57,20 +71,20 @@ var WL = {
   }, {
     id: "v2",
     emoji: "🤖",
-    text: "Любая сумма на робот-пылесос",
+    text: "Сумма на робот-пылесос",
     hint: "мечта о чистоте",
     multi: true
   }, {
     id: "v3",
     emoji: "✈️",
-    text: "Любая сумма на отпуск в Дубае",
+    text: "Сумма на отпуск в Дубае",
     hint: "море ждёт",
     multi: true
   }, {
     id: "v4",
     emoji: "🌸",
-    text: "Духи Victoria Secret или любые вкусненькие",
-    hint: "или другие ароматы"
+    text: "Духи Victoria Secret",
+    hint: "или любые вкусненькие"
   }, {
     id: "v5",
     emoji: "🍳",
@@ -113,63 +127,63 @@ var WL = {
 var MIXES = [{
   id: 1,
   name: "Душный Слайд + Рэпер-Экстрасенс",
-  mission: "Сделать презентацию на 10 слайдов на тему: «Почему коты — это жидкость, а голуби — шпионы: доказательства и графики».",
-  role: "Каждый раз, когда именинницы или гости собираются что-то выпить или съесть, резко вставлять рэперские выкрики («Е-бой!», «Скра-а!», «Пошуми-и-им!»), а потом заговорщически шептать: «Я предвидел этот глоток, таймкод записан».\n\nПример: Когда именинница тянется за бокалом, резко вскиньте руки вверх: «Эщкере-бой! Катя делает глоток полусладкого! Пошуми-и-им!». Когда все замолчат, посмотрите на неё стеклянным взглядом и прошепчите: «Я знал, что ты выберешь этот бокал. Ровно в 20:14. Матрица сошлась»."
+  mission: "Сделать презентацию на 10 слайдов: «Почему коты — это жидкость, а голуби — шпионы: доказательства и графики».",
+  role: "Каждый раз, когда кто-то тянется к бокалу или еде — резко вскинь руки: «Эщкере-бой! Катя делает глоток! Пошуми-и-им!». Потом посмотри стеклянным взглядом и прошепчи: «Я знал, что ты выберешь этот бокал. Ровно в 20:14. Матрица сошлась»."
 }, {
   id: 2,
   name: "Криминальный Хит + Нейросеть на выезде",
-  mission: "Пересказать текст песни «Рюмка водки на столе» (или любого другого известного поп-хита) так, будто это реальная сводка криминальных новостей из утренней газеты.",
-  role: "В течение всей вечеринки общаться с гостями и именинницами так, будто ты — текстовая языковая модель ChatGPT. Запредельный уровень вежливости, любой ответ строго структурирован.\n\nГлавные правила:\n1. Задержка ответа: перед тем как ответить на любой вопрос, замирать на 2 секунды (имитировать загрузку).\n2. Всегда начинать фразу со слов: «Конечно! Рад помочь вам с этим вопросом...» или «Это отличный вопрос! Давайте разберём его подробнее...»\n\nПример: Если спрашивают, что будешь есть/пить: (Пауза 2 секунды) «Это отличный вопрос! Выбор напитка зависит от ваших целей на вечер. Вот 2 варианта: 1. Вода (поддерживает гидратацию). 2. Игристое (повышает уровень эндорфинов). Как текстовая модель, я выберу второй вариант для оптимизации праздничной атмосферы. Что-нибудь ещё?»"
+  mission: "Пересказать «Рюмку водки на столе» как сводку криминальных новостей из утренней газеты.",
+  role: "Замирай на 2 секунды перед любым ответом. Всегда начинай: «Конечно! Рад помочь с этим вопросом...». Пример: тебя спрашивают что будешь есть — пауза 2 сек — «Это отличный вопрос! Вот 2 варианта: 1. Вода (гидратация). 2. Игристое (эндорфины). Выбираю второй вариант для оптимизации атмосферы. Что-нибудь ещё?»"
 }, {
   id: 3,
   name: "Бизнес-Стартап + Похититель Внимания",
-  mission: "Презентовать гостям абсурдный стартап (например, «Приложение по аренде профессиональных плакальщиков на диетах») и попытаться собрать с них «инвестиции».",
-  role: "Весь вечер вежливо, но беспощадно перебивать людей на полуслове, комментируя их действия или слова.\n\nПример: Ждите, пока кто-то начнёт эмоционально рассказывать историю. На середине фразы мягко, но уверенно перебейте: «Извини, я тебя перебью... Просто у тебя сейчас невероятно эстетичная траектория взмаха левой руки. Идеальная геометрия. Продолжай, пожалуйста, я заворожён»."
+  mission: "Презентовать абсурдный стартап «Аренда профессиональных плакальщиков на диетах» и попытаться собрать с гостей инвестиции.",
+  role: "Жди, пока кто-то начнёт рассказывать историю. На середине фразы перебей: «Извини, я тебя перебью... просто у тебя сейчас невероятно эстетичная траектория взмаха левой руки. Идеальная геометрия. Продолжай, я заворожён»."
 }, {
   id: 4,
   name: "Великий Манифест + Сленговый Провокатор",
-  mission: "Зачитать серьёзный, пафосный «Манифест защиты прав комнатных растений» или «Правила этикета при поедании шавермы в приличном обществе».",
-  role: "Внедрять в обычные разговоры выдуманные молодёжные слова («гвойк», «зашмыг», «чебурекнуть» и т.д.) с абсолютно серьёзным лицом. Если люди не понимают — снисходительно вздыхать.\n\nПример: Попробуйте горячее, скривитесь и скажите: «М-да, мясо — полный гвойк. Повару явно не хватает вайба». На вопрос «Что такое гвойк?» ответьте с лёгким презрением: «Ну, гвойк... Когда кринж, но в плохом смысле. Вы что, не используете это слово?»"
+  mission: "Зачитать пафосный «Манифест защиты прав комнатных растений» или «Правила этикета при поедании шавермы в приличном обществе».",
+  role: "Внедряй выдуманные слова («гвойк», «зашмыг», «чебурекнуть») с серьёзным лицом. Попробуй еду, скривись: «М-да, мясо — полный гвойк». На вопрос «что такое гвойк?» ответь с презрением: «Ну, гвойк... когда кринж, но в плохом смысле. Вы что, не используете это слово?»"
 }, {
   id: 5,
   name: "Астролог на минималках + Фитнес-Контроль",
-  mission: "Составить астрологический прогноз для всех знаков зодиака на завтра, используя в качестве предсказаний случайные заголовки новостей из своего телефона.",
-  role: "Периодически проверять пульс на запястье у сидящих рядом гостей и с тревогой объявлять о превышении «пати-зоны».\n\nПример: В разгар танцев или бурного спора подойдите к гостю, молча возьмите его за запястье, засеките 5 секунд по часам, округлите глаза и скажите: «Так, стоп. Пати-зона превышена, пульс 140! Переходим на анаэробный шаг. Снижай pace, дыши животом, иначе до торта не доживёшь»."
+  mission: "Составить астрологический прогноз для всех знаков зодиака, используя случайные заголовки новостей из телефона.",
+  role: "В разгар танцев подойди к гостю, возьми за запястье, засеки 5 секунд: «Стоп. Пати-зона превышена, пульс 140! Переходим на анаэробный шаг. Снижай pace, иначе до торта не доживёшь»."
 }, {
   id: 6,
   name: "Адвокат Зла + Перфекционист-Визуал",
-  mission: "Подготовить доклад, в котором нужно аргументированно доказать, почему опоздания, лень и привычка разбрасывать носки — это главные двигатели мировой эволюции.",
-  role: "Молча и без спроса поправлять одежду, причёску или приборы у других гостей, восстанавливая идеальный баланс кадра.\n\nПример: Встаньте, подойдите к разговаривающему гостю, молча поправьте ему воротник рубашки, отойдите на два шага, прищурьтесь, поправьте вилку у него на столе, чтобы она лежала идеально параллельно ножу, выдохните: «Вот теперь композиция спасена, а то был визуальный хаос» — и спокойно сядьте на место."
+  mission: "Доказать, почему опоздания, лень и привычка разбрасывать носки — главные двигатели мировой эволюции.",
+  role: "Молча поправляй одежду и приборы у гостей. Поправь воротник, отойди, прищурься, поправь вилку параллельно ножу: «Вот теперь композиция спасена, а то был визуальный хаос» — и сядь."
 }, {
   id: 7,
   name: "Тайный заговор корпораций + Миллионер из Дубая",
-  mission: "Представить расследование (можно в виде презентации) и связать три абсолютно случайные вещи в один зловещий мировой заговор. Тема на выбор: «Почему бренд IKEA на самом деле управляется котами, и как их коробки гипнотизируют человечество» или «Связь между ценами на авиабилеты, исчезновением динозавров и тем, почему Катя/Вика не берут трубку с первого раза». На слайдах — безумные стрелочки, скриншоты карт, фотографии Вики и Кати, обведённые красным маркером.",
-  role: "Время от времени отводить разных гостей в сторону и шёпотом просить их стать номинальными владельцами активов в ОАЭ для обхода налогового аудита.\n\nПример: Отодвиньте друга в угол, оглядитесь по сторонам и тихо скажите: «Слушай, есть серьёзный разговор. Как думаешь, Вика не обидится, если я перепишу на неё свою долю в дубайском агентстве недвижимости? Мне нужно срочно вывести активы из-за аудита, а ей я доверяю»."
+  mission: "Расследование: связать IKEA, котов и Вику/Катю в зловещий мировой заговор. Слайды с красными стрелками и фото именинниц обязательны.",
+  role: "Отводи гостей в угол: «Слушай, есть серьёзный разговор. Мне нужно вывести активы из дубайского агентства недвижимости из-за аудита. Вике я доверяю — она не против, если я перепишу на неё долю?»"
 }, {
   id: 8,
   name: "Лектор по этикету + Агент Паранойи",
-  mission: "Прочитать лекцию о правилах «тихой роскоши» и минимализма, объяснив, почему пить напитки из пластиковых стаканчиков — это преступление против эстетики.",
-  role: "Если за столом или в кругу повисает пауза дольше 3 секунд, панически шептать соседям, что «они» их услышали, а затем резко менять тему.\n\nПример: Ждите момента, когда музыка затихнет или в разговоре наступит секундная пауза. В этот миг резко схватите соседей за руки и панически прошепчите: «Тссс! Только не включайте свет и не смотрите в окно, ОНИ нас услышали!». Через 5 секунд расслабьтесь и продолжите: «Так вот, насчёт соуса...»"
+  mission: "Лекция о «тихой роскоши»: почему пить из пластиковых стаканов — преступление против эстетики.",
+  role: "Когда в разговоре пауза дольше 3 секунд — хватай соседей за руки: «Тссс! Только не смотрите в окно — ОНИ нас услышали!». Через 5 секунд: «Так вот, насчёт соуса...»"
 }, {
   id: 9,
   name: "Стендап-Ложь + Пресс-Секретарь",
-  mission: "Рассказать три невероятные истории из своей жизни (две — чистая правда, одна — полный бред), чтобы гости угадывали, где ложь.",
-  role: "Каждый раз, когда кто-то пытается заговорить с Викой или Катей на личные или рабочие темы, вставать между ними и брать удар на себя.\n\nПример: Как только кто-то спрашивает Вику/Катю: «Как дела на работе?», сделайте шаг вперёд, заслоните её спиной и скажите: «Извините, все комментарии по поводу личной жизни и карьеры только через меня. У именинниц сегодня режим энергосбережения, они не дают интервью»."
+  mission: "Три истории: две правда, одна — полный бред. Гости угадывают где ложь.",
+  role: "Когда кто-то спрашивает Вику/Катю о работе — встань между ними: «Все комментарии только через меня. У именинниц сегодня режим энергосбережения — интервью не даём»."
 }, {
   id: 10,
   name: "Интеллектуальная разминка + Старовер",
-  mission: "Провести для гостей 5-минутную викторину на тему: «Что означают эти странные аббревиатуры в госзакупках / IT / психологии».",
-  role: "Использовать в обычной светской беседе ультра-старые, забытые выражения («Ишь ты!», «Ну и коленкор!», «Оказия какая!», «Анчутки») вперемешку с абсолютно современным контекстом.\n\nПример: Услышав новость, всплесните руками: «Слышали, Илон Маск запускает новые спутники? Ишь ты, шельма, чего удумал! Оказия какая для мировой науки!». Или при задержке блюда: «Суп несут уже полчаса. Анчутки бесхвостые, честное слово!»"
+  mission: "5-минутная викторина: «Что означают странные аббревиатуры в госзакупках / IT / психологии».",
+  role: "Используй старорусские слова в современном контексте: «Слышали? Илон Маск запускает спутники? Ишь ты, шельма, чего удумал! Оказия какая!». При задержке блюда: «Суп несут полчаса. Анчутки бесхвостые!»"
 }, {
   id: 11,
   name: "Арт-Эксперт + Строгий Судья",
-  mission: "Найти в интерьере 5 самых уродливых или странных предметов и сделать по ним пафосную экскурсию, как в Лувре.",
-  role: "Как только кто-то за столом шутит или рассказывает историю, громко объявлять оценку, записывая её в блокнот или телефон.\n\nПример: Когда кто-то смешно пошутит, громко захлопайте в ладоши и со всей серьёзностью скажите: «Ахаха, хорош! Засчитано!» — и демонстративно поставьте жирный плюс или галочку в экран/блокнот. Если шутка была средней: «Ну... Слабовато для этого стола. На троечку»."
+  mission: "Найти 5 самых странных предметов в интерьере и провести пафосную экскурсию как в Лувре.",
+  role: "Когда кто-то пошутит — захлопай в ладоши: «Засчитано!» и демонстративно поставь галочку в телефон. Если шутка средняя: «Слабовато для этого стола. На троечку»."
 }, {
   id: 12,
   name: "Теория Заговора + Скрытый Тактильщик",
-  mission: "Подготовить доклад/презентацию и доказать всем присутствующим, почему Илон Маск на самом деле родом из Калуги или Житомира.",
-  role: "Весь вечер пытаться незаметно прикоснуться к плечу разных гостей, но в момент их разворота мастерски делать вид, что вы здесь ни при чём.\n\nПример: Проходя мимо сидящего гостя, легонько коснитесь пальцами его плеча. В ту же секунду, когда он оборачивается, вы должны стоять спиной и увлечённо разглядывать люстру или бурно обсуждать с кем-то третьим погоду. Главное — лицо кирпичом."
+  mission: "Доказать, почему Илон Маск на самом деле родом из Калуги или Житомира (презентация обязательна).",
+  role: "Весь вечер незаметно касайся плеча гостей. Когда оборачиваются — ты уже стоишь спиной и увлечённо разглядываешь люстру. Лицо — кирпичом."
 }];
 var FORTUNES = [{
   emoji: "💃",
@@ -208,50 +222,7 @@ var FORTUNES = [{
   emoji: "🌟",
   text: "Станешь звездой вечера — даже если придёшь ненадолго"
 }];
-
-// Pastel button colours cycling
-var BTN_COLORS = [{
-  bg: "rgba(255,182,193,0.45)",
-  border: "rgba(220,130,150,0.6)",
-  text: "#7a3040"
-},
-// pink
-{
-  bg: "rgba(173,216,230,0.45)",
-  border: "rgba(100,160,200,0.6)",
-  text: "#1a4a6a"
-},
-// blue
-{
-  bg: "rgba(152,251,152,0.40)",
-  border: "rgba(80,180,100,0.6)",
-  text: "#1a5a2a"
-},
-// green
-{
-  bg: "rgba(255,218,185,0.50)",
-  border: "rgba(210,150,80,0.6)",
-  text: "#6a3a10"
-},
-// peach
-{
-  bg: "rgba(221,160,221,0.40)",
-  border: "rgba(160,80,180,0.6)",
-  text: "#4a1a6a"
-},
-// lavender
-{
-  bg: "rgba(255,255,153,0.45)",
-  border: "rgba(180,160,60,0.6)",
-  text: "#5a4a00"
-} // yellow
-];
-var pastel = function pastel(i) {
-  return BTN_COLORS[i % BTN_COLORS.length];
-};
-var DB_URL = "https://birthday-vika-katya-default-rtdb.europe-west1.firebasedatabase.app/rsvp";
-var NO_LABELS = ["😅 Подумай хорошо", "🤔 Подумай ещё раз"];
-var EMPTY_DATA = {
+var EMPTY = {
   yes: [],
   no: [],
   reserved: {},
@@ -259,46 +230,47 @@ var EMPTY_DATA = {
   drinks: {},
   missions: {}
 };
-function loadData() {
-  return _loadData.apply(this, arguments);
+var NO_LABELS = ["😅 Подумай хорошо", "🤔 Подумай ещё раз"];
+function dbLoad() {
+  return _dbLoad.apply(this, arguments);
 }
-function _loadData() {
-  _loadData = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+function _dbLoad() {
+  _dbLoad = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
     var r, d, _t;
     return _regenerator().w(function (_context) {
       while (1) switch (_context.p = _context.n) {
         case 0:
           _context.p = 0;
           _context.n = 1;
-          return fetch(DB_URL + ".json");
+          return fetch(DB + ".json");
         case 1:
           r = _context.v;
           _context.n = 2;
           return r.json();
         case 2:
           d = _context.v;
-          return _context.a(2, d || EMPTY_DATA);
+          return _context.a(2, d || EMPTY);
         case 3:
           _context.p = 3;
           _t = _context.v;
-          return _context.a(2, EMPTY_DATA);
+          return _context.a(2, EMPTY);
       }
     }, _callee, null, [[0, 3]]);
   }));
-  return _loadData.apply(this, arguments);
+  return _dbLoad.apply(this, arguments);
 }
-function saveData(_x) {
-  return _saveData.apply(this, arguments);
+function dbSave(_x) {
+  return _dbSave.apply(this, arguments);
 }
-function _saveData() {
-  _saveData = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(d) {
+function _dbSave() {
+  _dbSave = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(d) {
     var _t2;
     return _regenerator().w(function (_context2) {
       while (1) switch (_context2.p = _context2.n) {
         case 0:
           _context2.p = 0;
           _context2.n = 1;
-          return fetch(DB_URL + ".json", {
+          return fetch(DB + ".json", {
             method: "PUT",
             headers: {
               "Content-Type": "application/json"
@@ -311,13 +283,13 @@ function _saveData() {
         case 2:
           _context2.p = 2;
           _t2 = _context2.v;
-          console.error("Save error:", _t2);
+          console.error(_t2);
         case 3:
           return _context2.a(2);
       }
     }, _callee2, null, [[0, 2]]);
   }));
-  return _saveData.apply(this, arguments);
+  return _dbSave.apply(this, arguments);
 }
 function useCountdown() {
   var target = new Date("2026-06-27T16:00:00");
@@ -328,14 +300,14 @@ function useCountdown() {
       h: 0,
       m: 0,
       s: 0,
-      past: true
+      done: true
     };
     return {
       d: Math.floor(diff / 86400000),
       h: Math.floor(diff % 86400000 / 3600000),
       m: Math.floor(diff % 3600000 / 60000),
       s: Math.floor(diff % 60000 / 1000),
-      past: false
+      done: false
     };
   };
   var _useState = useState(calc),
@@ -352,17 +324,51 @@ function useCountdown() {
   }, []);
   return t;
 }
-function Wheel(_ref) {
-  var items = _ref.items,
-    angle = _ref.angle,
-    spinning = _ref.spinning,
-    onSpin = _ref.onSpin,
-    label = _ref.label,
-    colorIdx = _ref.colorIdx;
-  var R = 100,
+
+/* ── Btn ── */
+function Btn(_ref) {
+  var children = _ref.children,
+    onClick = _ref.onClick,
+    disabled = _ref.disabled,
+    full = _ref.full,
+    _ref$style = _ref.style,
+    extra = _ref$style === void 0 ? {} : _ref$style;
+  return /*#__PURE__*/React.createElement("button", {
+    onClick: onClick,
+    disabled: disabled,
+    style: _objectSpread({
+      display: "block",
+      width: full ? "100%" : "auto",
+      border: "1px solid ".concat(C.btnBorder),
+      borderRadius: 8,
+      padding: "14px 24px",
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 17,
+      letterSpacing: 2,
+      cursor: disabled ? "not-allowed" : "pointer",
+      background: C.btnBg,
+      color: C.btnText,
+      backdropFilter: "blur(8px)",
+      WebkitBackdropFilter: "blur(8px)",
+      WebkitAppearance: "none",
+      touchAction: "manipulation",
+      boxShadow: "0 1px 4px rgba(0,0,0,0.08)",
+      transition: "opacity .15s",
+      opacity: disabled ? .5 : 1
+    }, extra)
+  }, children);
+}
+
+/* ── Wheel ── */
+function Wheel(_ref2) {
+  var items = _ref2.items,
+    angle = _ref2.angle,
+    spinning = _ref2.spinning,
+    onSpin = _ref2.onSpin,
+    label = _ref2.label;
+  var R = 105,
     SEG = 360 / items.length;
-  var COLS = ["#fde8f0", "#dff0fd", "#e0fde8", "#fdf3e0", "#f0e0fd", "#fdfde0", "#ffe8d8", "#e0f8fd", "#fde0e0", "#e0fdf3"];
-  var TCOLS = ["#7a2040", "#1a4a7a", "#1a5a2a", "#6a4010", "#4a1a7a", "#5a5a00", "#7a3a10", "#0a4a5a", "#7a1010", "#0a5a3a"];
+  var FILLS = ["#f9e8e8", "#e8f0f9", "#e8f9ea", "#f9f4e8", "#f0e8f9", "#e8f9f7", "#f9ece8", "#eaf9e8", "#f9e8f4", "#e8eef9", "#f9f9e8", "#f4e8f9"];
   var segs = items.map(function (g, i) {
     var a1 = (i * SEG - 90) * Math.PI / 180,
       a2 = ((i + 1) * SEG - 90) * Math.PI / 180;
@@ -376,10 +382,9 @@ function Wheel(_ref) {
       tx: R + R * .62 * Math.cos(am),
       ty: R + R * .62 * Math.sin(am),
       emoji: g.emoji,
-      col: COLS[i % COLS.length]
+      fill: FILLS[i % FILLS.length]
     };
   });
-  var c = pastel(colorIdx || 0);
   return /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
@@ -397,17 +402,17 @@ function Wheel(_ref) {
       top: -14,
       left: "50%",
       transform: "translateX(-50%)",
-      zIndex: 10
+      zIndex: 10,
+      fontSize: 0
     }
   }, /*#__PURE__*/React.createElement("svg", {
-    width: "22",
-    height: "20",
-    viewBox: "0 0 22 22"
+    width: "20",
+    height: "18",
+    viewBox: "0 0 20 18"
   }, /*#__PURE__*/React.createElement("polygon", {
-    points: "11,2 20,20 2,20",
-    fill: "#888",
-    stroke: "white",
-    strokeWidth: "1.5"
+    points: "10,1 19,17 1,17",
+    fill: C.ink,
+    opacity: ".7"
   }))), /*#__PURE__*/React.createElement("svg", {
     width: R * 2,
     height: R * 2,
@@ -415,15 +420,14 @@ function Wheel(_ref) {
     style: {
       transform: "rotate(".concat(angle, "deg)"),
       transition: spinning ? "transform 3.2s cubic-bezier(.17,.67,.12,1)" : "none",
-      display: "block",
-      filter: "drop-shadow(0 4px 16px rgba(0,0,0,0.1))"
+      filter: "drop-shadow(0 3px 12px rgba(0,0,0,0.12))"
     }
   }, segs.map(function (s, i) {
     return /*#__PURE__*/React.createElement("g", {
       key: i
     }, /*#__PURE__*/React.createElement("path", {
       d: s.path,
-      fill: s.col,
+      fill: s.fill,
       stroke: "white",
       strokeWidth: "1.5"
     }), /*#__PURE__*/React.createElement("text", {
@@ -442,58 +446,12 @@ function Wheel(_ref) {
     cy: R,
     r: "13",
     fill: "white",
-    stroke: "#ddd",
-    strokeWidth: "2"
-  }))), /*#__PURE__*/React.createElement("button", {
+    stroke: C.line,
+    strokeWidth: "1.5"
+  }))), /*#__PURE__*/React.createElement(Btn, {
     onClick: onSpin,
-    disabled: spinning,
-    style: {
-      border: "1.5px solid ".concat(c.border),
-      borderRadius: 50,
-      padding: "12px 28px",
-      fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 17,
-      letterSpacing: 2,
-      cursor: spinning ? "wait" : "pointer",
-      background: spinning ? "rgba(230,230,230,0.6)" : c.bg,
-      color: c.text,
-      backdropFilter: "blur(6px)",
-      transition: "all .2s",
-      fontWeight: 600
-    }
-  }, spinning ? "КРУТИТСЯ..." : label || "КРУТИТЬ! 🎰"));
-}
-
-// Pastel button component
-function PBtn(_ref2) {
-  var children = _ref2.children,
-    onClick = _ref2.onClick,
-    disabled = _ref2.disabled,
-    colorIdx = _ref2.colorIdx,
-    _ref2$style = _ref2.style,
-    _ref2$style2 = _ref2$style === void 0 ? {} : _ref2$style,
-    width = _ref2$style2.width,
-    restStyle = _objectWithoutProperties(_ref2$style2, _excluded);
-  var c = pastel(colorIdx || 0);
-  return /*#__PURE__*/React.createElement("button", {
-    onClick: onClick,
-    disabled: disabled,
-    style: _objectSpread({
-      border: "1.5px solid ".concat(c.border),
-      borderRadius: 50,
-      padding: "13px 28px",
-      fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 17,
-      letterSpacing: 2,
-      cursor: disabled ? "not-allowed" : "pointer",
-      background: c.bg,
-      color: c.text,
-      backdropFilter: "blur(6px)",
-      transition: "all .2s",
-      fontWeight: 600,
-      width: width || "auto"
-    }, restStyle)
-  }, children);
+    disabled: spinning
+  }, spinning ? "КРУТИТСЯ..." : label || "КРУТИТЬ 🎰"));
 }
 function App() {
   var _useState3 = useState("main"),
@@ -510,133 +468,128 @@ function App() {
     setNoStage = _useState8[1];
   var _useState9 = useState({}),
     _useState0 = _slicedToArray(_useState9, 2),
-    btnNoSt = _useState0[0],
-    setBtnNoSt = _useState0[1];
+    noPos = _useState0[0],
+    setNoPos = _useState0[1];
   var _useState1 = useState(null),
     _useState10 = _slicedToArray(_useState1, 2),
     rsvpDone = _useState10[0],
     setRsvpDone = _useState10[1];
-  var _useState11 = useState(EMPTY_DATA),
+  var _useState11 = useState(EMPTY),
     _useState12 = _slicedToArray(_useState11, 2),
-    appData = _useState12[0],
-    setAppData = _useState12[1];
-  var _useState13 = useState(false),
+    data = _useState12[0],
+    setData = _useState12[1];
+  var _useState13 = useState(""),
     _useState14 = _slicedToArray(_useState13, 2),
-    dataLoaded = _useState14[0],
-    setDataLoaded = _useState14[1];
+    food = _useState14[0],
+    setFood = _useState14[1];
   var _useState15 = useState(""),
     _useState16 = _slicedToArray(_useState15, 2),
-    foodPref = _useState16[0],
-    setFoodPref = _useState16[1];
-  var _useState17 = useState(""),
+    drinks = _useState16[0],
+    setDrinks = _useState16[1];
+  var _useState17 = useState(null),
     _useState18 = _slicedToArray(_useState17, 2),
-    drinkPref = _useState18[0],
-    setDrinkPref = _useState18[1];
-  var _useState19 = useState(null),
+    who = _useState18[0],
+    setWho = _useState18[1];
+  var _useState19 = useState(0),
     _useState20 = _slicedToArray(_useState19, 2),
-    who = _useState20[0],
-    setWho = _useState20[1];
+    vaAngle = _useState20[0],
+    setVaAngle = _useState20[1];
   var _useState21 = useState(0),
     _useState22 = _slicedToArray(_useState21, 2),
-    vikaAngle = _useState22[0],
-    setVikaAngle = _useState22[1];
-  var _useState23 = useState(0),
+    kaAngle = _useState22[0],
+    setKaAngle = _useState22[1];
+  var _useState23 = useState(false),
     _useState24 = _slicedToArray(_useState23, 2),
-    katAngle = _useState24[0],
-    setKatAngle = _useState24[1];
+    vaSpin = _useState24[0],
+    setVaSpin = _useState24[1];
   var _useState25 = useState(false),
     _useState26 = _slicedToArray(_useState25, 2),
-    vikaSpin = _useState26[0],
-    setVikaSpin = _useState26[1];
-  var _useState27 = useState(false),
+    kaSpin = _useState26[0],
+    setKaSpin = _useState26[1];
+  var _useState27 = useState(null),
     _useState28 = _slicedToArray(_useState27, 2),
-    katSpin = _useState28[0],
-    setKatSpin = _useState28[1];
+    vaRes = _useState28[0],
+    setVaRes = _useState28[1];
   var _useState29 = useState(null),
     _useState30 = _slicedToArray(_useState29, 2),
-    vikaRes = _useState30[0],
-    setVikaRes = _useState30[1];
-  var _useState31 = useState(null),
+    kaRes = _useState30[0],
+    setKaRes = _useState30[1];
+  var _useState31 = useState(""),
     _useState32 = _slicedToArray(_useState31, 2),
-    katRes = _useState32[0],
-    setKatRes = _useState32[1];
+    vaMsg = _useState32[0],
+    setVaMsg = _useState32[1];
   var _useState33 = useState(""),
     _useState34 = _slicedToArray(_useState33, 2),
-    vikaMsg = _useState34[0],
-    setVikaMsg = _useState34[1];
-  var _useState35 = useState(""),
+    kaMsg = _useState34[0],
+    setKaMsg = _useState34[1];
+  var vaAcc = useRef(0),
+    kaAcc = useRef(0);
+  var _useState35 = useState(null),
     _useState36 = _slicedToArray(_useState35, 2),
-    katMsg = _useState36[0],
-    setKatMsg = _useState36[1];
-  var vikaAcc = useRef(0),
-    katAcc = useRef(0);
-  var _useState37 = useState(null),
+    mix = _useState36[0],
+    setMix = _useState36[1];
+  var _useState37 = useState(false),
     _useState38 = _slicedToArray(_useState37, 2),
-    mix = _useState38[0],
-    setMix = _useState38[1];
-  var _useState39 = useState(false),
+    accepted = _useState38[0],
+    setAccepted = _useState38[1];
+  var _useState39 = useState(null),
     _useState40 = _slicedToArray(_useState39, 2),
-    accepted = _useState40[0],
-    setAccepted = _useState40[1];
-  var _useState41 = useState(null),
+    fortune = _useState40[0],
+    setFortune = _useState40[1];
+  var _useState41 = useState(false),
     _useState42 = _slicedToArray(_useState41, 2),
-    fortune = _useState42[0],
-    setFortune = _useState42[1];
+    fortUsed = _useState42[0],
+    setFortUsed = _useState42[1];
   var _useState43 = useState(false),
     _useState44 = _slicedToArray(_useState43, 2),
-    fortUsed = _useState44[0],
-    setFortUsed = _useState44[1];
+    fortAnim = _useState44[0],
+    setFortAnim = _useState44[1];
   var _useState45 = useState(false),
     _useState46 = _slicedToArray(_useState45, 2),
     showWelcome = _useState46[0],
     setShowWelcome = _useState46[1];
   var _useState47 = useState(false),
     _useState48 = _slicedToArray(_useState47, 2),
-    fortAnim = _useState48[0],
-    setFortAnim = _useState48[1];
-  var _useState49 = useState(false),
+    adminOpen = _useState48[0],
+    setAdminOpen = _useState48[1];
+  var _useState49 = useState(""),
     _useState50 = _slicedToArray(_useState49, 2),
-    adminOpen = _useState50[0],
-    setAdminOpen = _useState50[1];
-  var _useState51 = useState(""),
+    pin = _useState50[0],
+    setPin = _useState50[1];
+  var _useState51 = useState(false),
     _useState52 = _slicedToArray(_useState51, 2),
-    pinInput = _useState52[0],
-    setPinInput = _useState52[1];
+    pinOk = _useState52[0],
+    setPinOk = _useState52[1];
   var _useState53 = useState(false),
     _useState54 = _slicedToArray(_useState53, 2),
-    pinOk = _useState54[0],
-    setPinOk = _useState54[1];
-  var _useState55 = useState(false),
-    _useState56 = _slicedToArray(_useState55, 2),
-    pinError = _useState56[0],
-    setPinError = _useState56[1];
+    pinErr = _useState54[0],
+    setPinErr = _useState54[1];
   var cd = useCountdown();
   var save = function save(d) {
-    setAppData(_objectSpread({}, d));
-    saveData(d);
+    setData(_objectSpread({}, d));
+    dbSave(d);
   };
-
-  // Load from Firebase on mount + poll every 5s
   useEffect(function () {
-    loadData().then(function (d) {
-      if (d) setAppData(d);
-      setDataLoaded(true);
+    dbLoad().then(function (d) {
+      return setData(d);
     });
     var id = setInterval(function () {
-      loadData().then(function (d) {
-        if (d) setAppData(d);
+      return dbLoad().then(function (d) {
+        return setData(d);
       });
     }, 5000);
     return function () {
       return clearInterval(id);
     };
   }, []);
+
+  /* YES */
   var handleYes = function handleYes() {
     var n = name.trim() || "Гость";
-    var d = _objectSpread({}, appData);
+    var d = _objectSpread({}, data);
     if (!d.yes.includes(n) && !d.no.includes(n)) d.yes.push(n);
-    if (foodPref) d.food[n] = foodPref;
-    if (drinkPref) d.drinks[n] = drinkPref;
+    if (food) d.food[n] = food;
+    if (drinks) d.drinks[n] = drinks;
     save(d);
     setRsvpDone({
       choice: "yes",
@@ -647,36 +600,38 @@ function App() {
       return setScreen("spinner");
     }, 1600);
   };
+
+  /* NO — убегает */
   var handleNo = function handleNo() {
     if (noStage < 2) {
-      var spots = [{
-        position: "absolute",
-        right: "0px",
-        top: "-62px",
-        left: "auto"
-      }, {
-        position: "absolute",
+      var positions = [{
+        bottom: "0px",
         left: "0px",
-        top: "-62px",
-        right: "auto"
+        right: "auto",
+        top: "auto"
       }, {
-        position: "absolute",
+        bottom: "auto",
         right: "0px",
-        top: "62px",
-        left: "auto"
+        left: "auto",
+        top: "-60px"
       }, {
-        position: "absolute",
+        bottom: "0px",
+        right: "0px",
+        left: "auto",
+        top: "auto"
+      }, {
+        bottom: "auto",
         left: "0px",
-        top: "62px",
-        right: "auto"
+        right: "auto",
+        top: "-60px"
       }];
-      setBtnNoSt(spots[Math.floor(Math.random() * spots.length)]);
+      setNoPos(positions[noStage]);
       setNoStage(function (s) {
         return s + 1;
       });
     } else {
       var n = name.trim() || "Гость";
-      var d = _objectSpread({}, appData);
+      var d = _objectSpread({}, data);
       if (!d.yes.includes(n) && !d.no.includes(n)) d.no.push(n);
       save(d);
       setRsvpDone({
@@ -686,66 +641,70 @@ function App() {
       setScreen("done_no");
     }
   };
+
+  /* SPIN */
   var doSpin = function doSpin(person) {
-    if (person === "vika" && !vikaSpin) {
-      setVikaSpin(true);
-      setVikaRes(null);
-      setVikaMsg("");
+    if (person === "vika" && !vaSpin) {
+      setVaSpin(true);
+      setVaRes(null);
+      setVaMsg("");
       var e = 1800 + Math.random() * 1440,
-        na = vikaAcc.current + e;
-      vikaAcc.current = na;
-      setVikaAngle(na);
+        na = vaAcc.current + e;
+      vaAcc.current = na;
+      setVaAngle(na);
       var items = WL.vika,
         seg = 360 / items.length,
         norm = (na % 360 + 360) % 360;
       setTimeout(function () {
-        setVikaRes(items[Math.floor((360 - norm) / seg) % items.length]);
-        setVikaSpin(false);
+        setVaRes(items[Math.floor((360 - norm) / seg) % items.length]);
+        setVaSpin(false);
       }, 3200);
     }
-    if (person === "katya" && !katSpin) {
-      setKatSpin(true);
-      setKatRes(null);
-      setKatMsg("");
+    if (person === "katya" && !kaSpin) {
+      setKaSpin(true);
+      setKaRes(null);
+      setKaMsg("");
       var _e = 1800 + Math.random() * 1440,
-        _na = katAcc.current + _e;
-      katAcc.current = _na;
-      setKatAngle(_na);
+        _na = kaAcc.current + _e;
+      kaAcc.current = _na;
+      setKaAngle(_na);
       var _items = WL.katya,
         _seg = 360 / _items.length,
         _norm = (_na % 360 + 360) % 360;
       setTimeout(function () {
-        setKatRes(_items[Math.floor((360 - _norm) / _seg) % _items.length]);
-        setKatSpin(false);
+        setKaRes(_items[Math.floor((360 - _norm) / _seg) % _items.length]);
+        setKaSpin(false);
       }, 3200);
     }
   };
+
+  /* RESERVE */
   var doReserve = function doReserve(item, custom, setMsg) {
     var gn = (rsvpDone === null || rsvpDone === void 0 ? void 0 : rsvpDone.guestName) || name.trim() || "Гость";
-    var d = _objectSpread({}, appData);
+    var d = _objectSpread({}, data);
     if (!d.reserved) d.reserved = {};
-    var key = item.id;
+    var suffix = custom ? " (свой / в складчину)" : "";
     if (item.multi) {
-      if (!Array.isArray(d.reserved[key])) d.reserved[key] = d.reserved[key] ? [d.reserved[key]] : [];
-      d.reserved[key].push(gn + (custom ? " (свой / в складчину)" : ""));
+      if (!Array.isArray(d.reserved[item.id])) d.reserved[item.id] = d.reserved[item.id] ? [d.reserved[item.id]] : [];
+      d.reserved[item.id].push(gn + suffix);
       save(d);
-      setMsg("✅ Забронировано! Спасибо 🎁");
+      setMsg("✅ Забронировано!");
     } else {
-      if (d.reserved[key]) {
-        setMsg("⚠️ Этот подарок уже выбрали!");
+      if (d.reserved[item.id]) {
+        setMsg("⚠️ Уже выбрали!");
         return;
       }
-      d.reserved[key] = gn + (custom ? " (свой / в складчину)" : "");
+      d.reserved[item.id] = gn + suffix;
       save(d);
-      setMsg("✅ Забронировано! Спасибо 🎁");
+      setMsg("✅ Забронировано!");
     }
     setTimeout(function () {
       return setMsg("");
-    }, 4000);
+    }, 3500);
   };
-  var getReservedList = function getReservedList(id) {
-    var _appData$reserved;
-    var r = (_appData$reserved = appData.reserved) === null || _appData$reserved === void 0 ? void 0 : _appData$reserved[id];
+  var resList = function resList(id) {
+    var _data$reserved;
+    var r = (_data$reserved = data.reserved) === null || _data$reserved === void 0 ? void 0 : _data$reserved[id];
     if (!r) return [];
     return Array.isArray(r) ? r : [r];
   };
@@ -754,23 +713,27 @@ function App() {
       return i.id === id;
     });
     if (!item || item.multi) return false;
-    return getReservedList(id).length > 0;
+    return resList(id).length > 0;
   };
+
+  /* MISSION */
   var getMix = function getMix() {
     var gn = (rsvpDone === null || rsvpDone === void 0 ? void 0 : rsvpDone.guestName) || name.trim() || "Гость";
-    var used = Object.values(appData.missions || {});
+    var used = Object.values(data.missions || {});
     var free = MIXES.filter(function (m) {
       return !used.includes(m.id);
     });
     var pool = free.length > 0 ? free : MIXES;
     var m = pool[Math.floor(Math.random() * pool.length)];
-    var d = _objectSpread({}, appData);
+    var d = _objectSpread({}, data);
     if (!d.missions) d.missions = {};
     d.missions[gn] = m.id;
     save(d);
     setMix(m);
     setAccepted(false);
   };
+
+  /* FORTUNE */
   var rollFortune = function rollFortune() {
     if (fortUsed || fortAnim) return;
     setFortAnim(true);
@@ -783,17 +746,19 @@ function App() {
       }, 10000);
     }, 1400);
   };
+
+  /* CONFETTI */
   var launchConfetti = function launchConfetti() {
-    var cols = ["#ffb6c1", "#add8e6", "#90ee90", "#ffd700", "#dda0dd", "#98fb98"];
+    var cols = ["#c8102e", "#1a1a1a", "#fff", "#ddd", "#888", "#f0ebe3"];
     if (!document.getElementById("fall-s")) {
       var s = document.createElement("style");
       s.id = "fall-s";
       s.textContent = "@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}";
       document.head.appendChild(s);
     }
-    for (var i = 0; i < 90; i++) setTimeout(function () {
+    for (var i = 0; i < 80; i++) setTimeout(function () {
       var c = document.createElement("div"),
-        sz = Math.random() * 10 + 3;
+        sz = Math.random() * 8 + 3;
       c.style.cssText = "position:fixed;left:".concat(Math.random() * 100, "vw;top:-14px;width:").concat(sz, "px;height:").concat(sz, "px;background:").concat(cols[Math.floor(Math.random() * cols.length)], ";border-radius:").concat(Math.random() > .5 ? "50%" : "2px", ";z-index:9999;animation:fall ").concat(Math.random() * 2 + 1.5, "s linear forwards;pointer-events:none;");
       document.body.appendChild(c);
       setTimeout(function () {
@@ -805,45 +770,75 @@ function App() {
   var gn = (rsvpDone === null || rsvpDone === void 0 ? void 0 : rsvpDone.guestName) || name.trim() || "Гость";
   var STEPS = ["spinner", "mission", "fortune"];
   var SLABELS = ["🎰 Подарок", "🎭 Задание", "🔮 Гадалка"];
-  var BG = "#f7f3ee",
-    CARD = "#fff",
-    BORDER = "#e8e0d8",
-    RED = "#c8102e",
-    T1 = "#1a1a1a",
-    T2 = "#555",
-    T3 = "#999";
-  var cs = {
-    background: CARD,
-    borderRadius: 12,
-    border: "1px solid ".concat(BORDER),
-    padding: "18px 20px",
+
+  /* ─── shared styles ─── */
+  var card = {
+    background: C.card,
+    borderRadius: 14,
+    border: "1px solid ".concat(C.line),
+    padding: "20px",
     marginBottom: 16
+  };
+  var label = {
+    fontFamily: "'Cormorant Garamond',serif",
+    fontSize: 11,
+    letterSpacing: 3,
+    textTransform: "uppercase",
+    color: C.soft,
+    marginBottom: 6,
+    display: "block"
+  };
+  var input = {
+    width: "100%",
+    border: "1px solid ".concat(C.line),
+    borderRadius: 8,
+    padding: "13px 16px",
+    fontSize: 16,
+    fontFamily: "'Cormorant Garamond',serif",
+    color: C.ink,
+    background: "rgba(255,255,255,0.8)",
+    outline: "none",
+    WebkitAppearance: "none"
+  };
+  var sectionTitle = {
+    fontFamily: "'Bebas Neue',sans-serif",
+    fontSize: 26,
+    letterSpacing: 3,
+    color: C.ink,
+    textAlign: "center",
+    marginBottom: 8
+  };
+  var subtitle = {
+    fontFamily: "'Cormorant Garamond',serif",
+    fontSize: 14,
+    color: C.soft,
+    textAlign: "center",
+    marginBottom: 20
   };
   return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: "100vh",
-      background: BG,
+      background: C.bg,
       display: "flex",
       alignItems: "flex-start",
       justifyContent: "center",
       fontFamily: "serif",
-      padding: "0 0 40px"
+      padding: "0 0 60px"
     }
-  }, /*#__PURE__*/React.createElement("style", null, "\n      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Caveat:wght@600&display=swap');\n      @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}\n      @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n      @keyframes wiggle{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(-5deg)}}\n      @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}\n      @keyframes hb{0%,100%{transform:scale(1)}14%{transform:scale(1.3)}28%{transform:scale(1)}42%{transform:scale(1.2)}70%{transform:scale(1)}}\n      @keyframes ballPulse{0%,100%{box-shadow:0 0 20px rgba(90,48,128,.3)}50%{box-shadow:0 0 40px rgba(90,48,128,.7)}}\n      @keyframes tickP{0%,100%{opacity:1}50%{opacity:.5}}\n      @keyframes reveal{from{opacity:0;transform:scale(.9) translateY(8px)}to{opacity:1;transform:none}}\n      @keyframes mIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}\n      *{box-sizing:border-box}\n      input,textarea{outline:none}\n      input:focus,textarea:focus{border-color:rgba(180,150,200,0.8)!important;box-shadow:0 0 0 3px rgba(180,150,200,0.2)!important}\n      .pill{cursor:pointer;transition:all .2s;}\n      .pill:hover{opacity:.8;}\n      pre{white-space:pre-wrap;font-family:'Cormorant Garamond',serif;font-size:15px;line-height:1.85;color:#333;margin:0;}\n    "), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("style", null, "\n      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,400&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Caveat:wght@600&display=swap');\n      @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}\n      @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}\n      @keyframes wiggle{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(-4deg)}}\n      @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}\n      @keyframes hb{0%,100%{transform:scale(1)}14%{transform:scale(1.3)}28%{transform:scale(1)}42%{transform:scale(1.2)}70%{transform:scale(1)}}\n      @keyframes ballPulse{0%,100%{box-shadow:0 0 20px rgba(90,48,128,.3)}50%{box-shadow:0 0 40px rgba(90,48,128,.7)}}\n      @keyframes tickP{0%,100%{opacity:1}50%{opacity:.4}}\n      @keyframes reveal{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}\n      *{box-sizing:border-box}\n      input,textarea{outline:none;-webkit-appearance:none;}\n      button{-webkit-appearance:none;touch-action:manipulation;}\n      button:active{opacity:.75;}\n      pre{white-space:pre-wrap;font-family:'Cormorant Garamond',serif;font-size:15px;line-height:1.85;color:".concat(C.ink, ";margin:0;}\n    ")), /*#__PURE__*/React.createElement("div", {
     style: {
-      width: "min(430px,97vw)",
-      background: BG,
-      position: "relative"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      background: CARD
+      width: "min(430px,100vw)",
+      background: C.bg
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      height: 12,
-      background: T1,
-      width: "100%"
+      background: "white",
+      borderBottom: "1px solid ".concat(C.line)
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: 10,
+      background: C.ink
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -853,8 +848,8 @@ function App() {
       zIndex: 5
     }
   }, /*#__PURE__*/React.createElement("svg", {
-    width: "170",
-    height: "84",
+    width: "160",
+    height: "80",
     viewBox: "0 0 180 90",
     style: {
       display: "block",
@@ -863,47 +858,91 @@ function App() {
   }, /*#__PURE__*/React.createElement("path", {
     d: "M90,45 C80,30 20,5 10,25 C0,45 60,55 90,45Z",
     fill: "none",
-    stroke: T1,
-    strokeWidth: "3",
+    stroke: C.ink,
+    strokeWidth: "2.5",
     strokeLinecap: "round"
   }), /*#__PURE__*/React.createElement("path", {
     d: "M90,45 C100,30 160,5 170,25 C180,45 120,55 90,45Z",
     fill: "none",
-    stroke: T1,
-    strokeWidth: "3",
-    strokeLinecap: "round"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M90,45 C85,52 75,74 80,80",
-    fill: "none",
-    stroke: T1,
+    stroke: C.ink,
     strokeWidth: "2.5",
     strokeLinecap: "round"
   }), /*#__PURE__*/React.createElement("path", {
-    d: "M90,45 C95,52 105,74 100,80",
+    d: "M90,45 C85,52 76,72 80,78",
     fill: "none",
-    stroke: T1,
-    strokeWidth: "2.5",
+    stroke: C.ink,
+    strokeWidth: "2",
+    strokeLinecap: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M90,45 C95,52 104,72 100,78",
+    fill: "none",
+    stroke: C.ink,
+    strokeWidth: "2",
     strokeLinecap: "round"
   }), /*#__PURE__*/React.createElement("circle", {
     cx: "90",
     cy: "45",
     r: "5",
-    fill: T1
+    fill: C.ink
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
-      position: "relative"
+      position: "relative",
+      height: 0
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       position: "absolute",
-      top: -62,
+      top: -66,
+      left: 14,
+      animation: "wiggle 4s ease-in-out infinite",
+      zIndex: 6
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "52",
+    height: "34",
+    viewBox: "0 0 58 40"
+  }, /*#__PURE__*/React.createElement("rect", {
+    width: "56",
+    height: "38",
+    x: "1",
+    y: "1",
+    rx: "4",
+    fill: C.ink
+  }), /*#__PURE__*/React.createElement("rect", {
+    width: "40",
+    height: "18",
+    x: "9",
+    y: "10",
+    rx: "2",
+    fill: "#333"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "18",
+    cy: "19",
+    r: "5",
+    fill: "#555"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "40",
+    cy: "19",
+    r: "5",
+    fill: "#555"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "29",
+    y: "7",
+    textAnchor: "middle",
+    fontSize: "5",
+    fill: C.soft,
+    fontFamily: "monospace"
+  }, "PLAYLIST"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      top: -68,
       right: 14,
       animation: "floatY 3s ease-in-out infinite",
       zIndex: 6
     }
   }, /*#__PURE__*/React.createElement("svg", {
-    width: "58",
-    height: "58",
+    width: "56",
+    height: "56",
     viewBox: "0 0 70 70"
   }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("radialGradient", {
     id: "dg",
@@ -917,7 +956,7 @@ function App() {
     stopColor: "#ccc"
   }), /*#__PURE__*/React.createElement("stop", {
     offset: "100%",
-    stopColor: "#777"
+    stopColor: "#888"
   })), /*#__PURE__*/React.createElement("clipPath", {
     id: "dc"
   }, /*#__PURE__*/React.createElement("circle", {
@@ -962,75 +1001,17 @@ function App() {
       width: "5",
       height: "5",
       fill: "white",
-      opacity: "0.8",
-      rx: "0.5"
+      opacity: ".8",
+      rx: ".5"
     });
   })), /*#__PURE__*/React.createElement("ellipse", {
     cx: "25",
     cy: "20",
-    rx: "8",
-    ry: "6",
+    rx: "7",
+    ry: "5",
     fill: "white",
-    opacity: "0.3"
-  }))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "absolute",
-      top: -58,
-      left: 14,
-      animation: "wiggle 4s ease-in-out infinite",
-      zIndex: 6
-    }
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "52",
-    height: "34",
-    viewBox: "0 0 58 40"
-  }, /*#__PURE__*/React.createElement("rect", {
-    width: "56",
-    height: "38",
-    x: "1",
-    y: "1",
-    rx: "4",
-    fill: "#333",
-    stroke: "#555",
-    strokeWidth: "1"
-  }), /*#__PURE__*/React.createElement("rect", {
-    width: "40",
-    height: "18",
-    x: "9",
-    y: "10",
-    rx: "2",
-    fill: "#222"
-  }), /*#__PURE__*/React.createElement("circle", {
-    cx: "18",
-    cy: "19",
-    r: "5",
-    fill: "#444",
-    stroke: "#666",
-    strokeWidth: "1"
-  }), /*#__PURE__*/React.createElement("circle", {
-    cx: "40",
-    cy: "19",
-    r: "5",
-    fill: "#444",
-    stroke: "#666",
-    strokeWidth: "1"
-  }), /*#__PURE__*/React.createElement("text", {
-    x: "29",
-    y: "7",
-    textAnchor: "middle",
-    fontSize: "5",
-    fill: "#ccc",
-    fontFamily: "monospace"
-  }, "PLAYLIST"))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "absolute",
-      top: -60,
-      right: 78,
-      fontSize: 26,
-      transform: "rotate(12deg)",
-      zIndex: 5
-    }
-  }, "\uD83C\uDF88")), /*#__PURE__*/React.createElement("div", {
+    opacity: ".3"
+  })))), /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center",
       padding: "2px 20px 0"
@@ -1038,26 +1019,26 @@ function App() {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 11,
-      letterSpacing: 4,
+      fontSize: 10,
+      letterSpacing: 5,
       textTransform: "uppercase",
-      color: T3
+      color: C.soft
     }
   }, "\u041D\u0438\u0448\u0435\u0432\u0430\u044F \u0432\u0435\u0447\u0435\u0440\u0438\u043D\u043A\u0430"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 66,
+      fontSize: 64,
       lineHeight: .88,
-      color: T1,
-      letterSpacing: 2
+      color: C.ink,
+      letterSpacing: 1
     }
   }, "HAPPY"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 66,
+      fontSize: 64,
       lineHeight: .88,
-      color: T1,
-      letterSpacing: 2
+      color: C.ink,
+      letterSpacing: 1
     }
   }, "BIRTHDAY")), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1069,48 +1050,48 @@ function App() {
   }, [{
     src: P1,
     cap: "до 30 🎂",
-    s: {
-      left: "-10px",
+    style: {
+      left: "-8px",
       bottom: "0",
-      transform: "rotate(-8deg)",
+      transform: "rotate(-7deg)",
       zIndex: 3
     },
-    w: 130,
-    h: 140
+    w: 128,
+    h: 138
   }, {
     src: P3,
     cap: "весело тогда 🥂",
-    s: {
+    style: {
       left: "50%",
       bottom: "10px",
       transform: "translateX(-50%) rotate(2deg)",
       zIndex: 4
     },
-    w: 124,
-    h: 132
+    w: 122,
+    h: 130
   }, {
     src: P2,
     cap: "90-е 🍾",
-    s: {
+    style: {
       right: "-8px",
       bottom: "0",
-      transform: "rotate(9deg)",
+      transform: "rotate(8deg)",
       zIndex: 3
     },
-    w: 122,
-    h: 132
+    w: 120,
+    h: 130
   }].map(function (ph, i) {
     return /*#__PURE__*/React.createElement("div", {
       key: i,
       style: _objectSpread({
         position: "absolute",
-        filter: "drop-shadow(2px 4px 10px rgba(0,0,0,0.2))"
-      }, ph.s)
+        filter: "drop-shadow(2px 4px 12px rgba(0,0,0,0.2))"
+      }, ph.style)
     }, /*#__PURE__*/React.createElement("div", {
       style: {
         background: "white",
         padding: "6px 6px 24px",
-        boxShadow: "1px 3px 10px rgba(0,0,0,0.12)"
+        boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.06)"
       }
     }, /*#__PURE__*/React.createElement("img", {
       src: "data:image/jpeg;base64,".concat(ph.src),
@@ -1125,28 +1106,28 @@ function App() {
         fontFamily: "'Caveat',cursive",
         fontSize: 12,
         textAlign: "center",
-        marginTop: 5,
-        color: "#666"
+        marginTop: 6,
+        color: C.mid
       }
     }, ph.cap)));
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       position: "absolute",
       left: 16,
-      top: 22,
-      color: RED,
-      fontSize: 13,
-      lineHeight: 1.8,
+      top: 24,
+      color: C.red,
+      fontSize: 12,
+      lineHeight: 1.9,
       zIndex: 6
     }
   }, "\u2764", /*#__PURE__*/React.createElement("br", null), "\u2764", /*#__PURE__*/React.createElement("br", null), "\u2764", /*#__PURE__*/React.createElement("br", null), "\u2764"), /*#__PURE__*/React.createElement("div", {
     style: {
       position: "absolute",
-      right: 18,
+      right: 20,
       top: 18,
-      fontSize: 22,
+      fontSize: 20,
       zIndex: 6,
-      opacity: .5
+      opacity: .4
     }
   }, "\u26A1")), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1156,24 +1137,24 @@ function App() {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 42,
+      fontSize: 40,
       fontWeight: 900,
       fontStyle: "italic",
-      color: RED,
+      color: C.red,
       lineHeight: 1
     }
   }, "\u0412\u0438\u043A\u0430 & \u041A\u0430\u0442\u044F"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 24,
-      color: T1,
+      fontSize: 22,
+      color: C.ink,
       letterSpacing: 7,
       marginTop: 2
     }
   }, "30 \u041B\u0415\u0422")), /*#__PURE__*/React.createElement("div", {
     style: {
       height: 1,
-      background: BORDER,
+      background: C.line,
       margin: "10px 24px"
     }
   }), /*#__PURE__*/React.createElement("div", {
@@ -1191,59 +1172,59 @@ function App() {
     style: {
       flex: 1,
       height: 1,
-      background: BORDER
+      background: C.line
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 13,
+      fontSize: 12,
       letterSpacing: 3,
       textTransform: "uppercase",
-      color: T3
+      color: C.soft
     }
   }, "\u0421\u0443\u0431\u0431\u043E\u0442\u0430"), /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1,
       height: 1,
-      background: BORDER
+      background: C.line
     }
   })), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 72,
-      color: T1,
-      lineHeight: .88
+      fontSize: 70,
+      color: C.ink,
+      lineHeight: .9
     }
   }, "27"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      gap: 20,
+      gap: 18,
       marginTop: 2
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 13,
+      fontSize: 12,
       letterSpacing: 3,
       textTransform: "uppercase",
-      color: T3
+      color: C.soft
     }
   }, "\u0418\u042E\u041D\u042F"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 22,
-      color: RED,
+      fontSize: 20,
+      color: C.red,
       letterSpacing: 2
     }
   }, "16:00")), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 15,
-      color: T2,
+      fontSize: 14,
+      color: C.mid,
       marginTop: 8,
-      lineHeight: 1.6
+      lineHeight: 1.7
     }
   }, "\u0421\u0430\u043D\u043A\u0442-\u041F\u0435\u0442\u0435\u0440\u0431\u0443\u0440\u0433", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -1252,7 +1233,7 @@ function App() {
   }, "\u0443\u043B. \u0427\u0430\u0439\u043A\u043E\u0432\u0441\u043A\u043E\u0433\u043E, 24"))), /*#__PURE__*/React.createElement("div", {
     style: {
       height: 1,
-      background: BORDER,
+      background: C.line,
       margin: "10px 24px"
     }
   }), /*#__PURE__*/React.createElement("div", {
@@ -1263,13 +1244,13 @@ function App() {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 12,
+      fontSize: 11,
       letterSpacing: 3,
       textTransform: "uppercase",
-      color: T3,
+      color: C.soft,
       marginBottom: 10
     }
-  }, cd.past ? "🎉 Вечеринка уже идёт!" : "До вечеринки осталось"), !cd.past && /*#__PURE__*/React.createElement("div", {
+  }, cd.done ? "🎉 Вечеринка уже идёт!" : "До вечеринки осталось"), !cd.done && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 8,
@@ -1294,33 +1275,33 @@ function App() {
       key: i,
       style: {
         flex: 1,
-        background: "#f5f0eb",
+        border: "1px solid ".concat(C.line),
         borderRadius: 8,
-        padding: "12px 4px",
-        border: "1px solid ".concat(BORDER)
+        padding: "10px 4px",
+        background: "white"
       }
     }, /*#__PURE__*/React.createElement("div", {
       style: {
         fontFamily: "'Bebas Neue',sans-serif",
-        fontSize: 30,
-        color: i === 3 ? RED : T1,
+        fontSize: 28,
+        color: i === 3 ? C.red : C.ink,
         lineHeight: 1,
         animation: i === 3 ? "tickP 1s ease-in-out infinite" : "none"
       }
     }, String(v).padStart(2, "0")), /*#__PURE__*/React.createElement("div", {
       style: {
         fontFamily: "'Cormorant Garamond',serif",
-        fontSize: 10,
-        color: T3,
+        fontSize: 9,
+        color: C.soft,
         letterSpacing: 1,
         textTransform: "uppercase",
-        marginTop: 3
+        marginTop: 2
       }
     }, l));
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
       height: 1,
-      background: BORDER,
+      background: C.line,
       margin: "0 24px"
     }
   }), /*#__PURE__*/React.createElement("div", {
@@ -1331,82 +1312,71 @@ function App() {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 11,
+      fontSize: 10,
       letterSpacing: 4,
       textTransform: "uppercase",
-      color: T3
+      color: C.soft
     }
   }, "//  dress code"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 18,
+      fontSize: 17,
       fontStyle: "italic",
-      color: T1,
+      color: C.ink,
       marginTop: 3
     }
   }, "\u0425\u043E\u0440\u043E\u0448\u0435\u0435 \u043D\u0430\u0441\u0442\u0440\u043E\u0435\u043D\u0438\u0435 \uD83E\uDE77")), /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: "0 20px 20px",
-      textAlign: "center"
+      padding: "0 24px 24px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 10
     }
-  }, !rsvpDone && /*#__PURE__*/React.createElement("button", {
+  }, !rsvpDone && /*#__PURE__*/React.createElement(Btn, {
+    full: true,
     onClick: function onClick() {
       return setScreen("rsvp");
-    },
-    style: {
-      border: "1.5px solid rgba(220,130,150,0.6)",
-      borderRadius: 50,
-      padding: "13px 28px",
-      fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 17,
-      letterSpacing: 2,
-      cursor: "pointer",
-      background: "rgba(255,182,193,0.45)",
-      color: "#7a3040",
-      WebkitAppearance: "none",
-      touchAction: "manipulation",
-      backdropFilter: "blur(6px)"
     }
   }, "\u041F\u041E\u0414\u0422\u0412\u0415\u0420\u0414\u0418\u0422\u042C \u0423\u0427\u0410\u0421\u0422\u0418\u0415 \u2705"), isYes && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
-      gap: 6,
+      gap: 8,
       flexWrap: "wrap",
       justifyContent: "center"
     }
   }, STEPS.map(function (s, i) {
     return /*#__PURE__*/React.createElement("button", {
       key: s,
-      className: "pill",
       onClick: function onClick() {
         return setScreen(s);
       },
       style: {
-        border: "1.5px solid ".concat(screen === s ? pastel(i).border : BORDER),
+        border: "1px solid ".concat(screen === s ? C.ink : C.line),
         borderRadius: 50,
         padding: "9px 16px",
         fontFamily: "'Bebas Neue',sans-serif",
         fontSize: 13,
         letterSpacing: 1,
         cursor: "pointer",
-        background: screen === s ? pastel(i).bg : "transparent",
-        color: screen === s ? pastel(i).text : T2,
-        backdropFilter: "blur(4px)",
-        transition: "all .2s"
+        background: screen === s ? "rgba(0,0,0,0.06)" : "transparent",
+        color: C.ink,
+        WebkitAppearance: "none",
+        touchAction: "manipulation"
       }
     }, SLABELS[i]);
   })), (rsvpDone === null || rsvpDone === void 0 ? void 0 : rsvpDone.choice) === "no" && /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 15,
-      color: T3,
+      fontSize: 14,
+      color: C.soft,
       fontStyle: "italic"
     }
   }, "\u0414\u043E \u0441\u0432\u0438\u0434\u0430\u043D\u0438\u044F \uD83D\uDC4B"))), isYes && STEPS.includes(screen) && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
-      borderTop: "1px solid ".concat(BORDER),
-      background: CARD
+      borderBottom: "1px solid ".concat(C.line),
+      background: "white"
     }
   }, STEPS.map(function (s, i) {
     return /*#__PURE__*/React.createElement("div", {
@@ -1419,62 +1389,53 @@ function App() {
         textAlign: "center",
         padding: "10px 2px",
         cursor: "pointer",
-        borderBottom: screen === s ? "2px solid ".concat(pastel(i).border) : "2px solid transparent"
+        borderBottom: screen === s ? "2px solid ".concat(C.ink) : "2px solid transparent",
+        transition: "border .2s"
       }
     }, /*#__PURE__*/React.createElement("div", {
       style: {
         fontFamily: "'Bebas Neue',sans-serif",
         fontSize: 11,
         letterSpacing: 1,
-        color: screen === s ? pastel(i).text : T3
+        color: screen === s ? C.ink : C.soft
       }
     }, SLABELS[i]));
   })), screen === "rsvp" && !rsvpDone && /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: "20px 20px 30px",
+      padding: "24px 20px 30px",
       animation: "fadeUp .4s ease both",
-      background: CARD
+      background: "white"
     }
   }, /*#__PURE__*/React.createElement("div", {
+    style: sectionTitle
+  }, "\u041F\u041E\u0414\u0422\u0412\u0415\u0420\u0414\u0418 \u0423\u0427\u0410\u0421\u0422\u0418\u0415"), /*#__PURE__*/React.createElement("div", {
+    style: subtitle
+  }, "\u0411\u0443\u0434\u0435\u043C \u0440\u0430\u0434\u044B \u0442\u0435\u0431\u044F \u0432\u0438\u0434\u0435\u0442\u044C! \uD83C\uDF89"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 28,
-      letterSpacing: 3,
-      color: T1,
-      marginBottom: 16,
-      textAlign: "center"
+      marginBottom: 14
     }
-  }, "\u041F\u041E\u0414\u0422\u0412\u0415\u0420\u0414\u0418 \u0423\u0427\u0410\u0421\u0422\u0418\u0415"), /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React.createElement("span", {
+    style: label
+  }, "\u0422\u0432\u043E\u0451 \u0438\u043C\u044F"), /*#__PURE__*/React.createElement("input", {
     value: name,
     onChange: function onChange(e) {
       return setName(e.target.value);
     },
-    placeholder: "\u0422\u0432\u043E\u0451 \u0438\u043C\u044F",
+    placeholder: "\u0418\u043C\u044F",
     maxLength: 40,
-    style: {
-      width: "100%",
-      border: "1.5px solid ".concat(BORDER),
-      borderRadius: 8,
-      padding: "14px 16px",
-      fontSize: 16,
-      fontFamily: "'Cormorant Garamond',serif",
-      color: T1,
-      background: "#fff",
-      marginBottom: 14,
-      display: "block"
-    }
-  }), [{
+    style: input
+  })), [{
     label: "🍽️ Пожелания по еде",
-    val: foodPref,
-    set: setFoodPref,
+    val: food,
+    set: setFood,
     ph: "Что любишь / не ешь?"
   }, {
     label: "🥂 Пожелания по напиткам",
-    val: drinkPref,
-    set: setDrinkPref,
+    val: drinks,
+    set: setDrinks,
     ph: "Алкоголь, сок, вода?"
   }].map(function (_ref6, i) {
-    var label = _ref6.label,
+    var lb = _ref6.label,
       val = _ref6.val,
       set = _ref6.set,
       ph = _ref6.ph;
@@ -1483,166 +1444,131 @@ function App() {
       style: {
         marginBottom: 14
       }
-    }, /*#__PURE__*/React.createElement("div", {
-      style: {
-        fontFamily: "'Cormorant Garamond',serif",
-        fontSize: 12,
-        letterSpacing: 2,
-        textTransform: "uppercase",
-        color: T3,
-        marginBottom: 6
-      }
-    }, label), /*#__PURE__*/React.createElement("textarea", {
+    }, /*#__PURE__*/React.createElement("span", {
+      style: label
+    }, lb), /*#__PURE__*/React.createElement("textarea", {
       value: val,
       onChange: function onChange(e) {
         return set(e.target.value);
       },
       placeholder: ph,
       rows: 2,
-      style: {
-        width: "100%",
-        border: "1.5px solid ".concat(BORDER),
-        borderRadius: 8,
-        padding: "12px 16px",
-        fontSize: 15,
-        fontFamily: "'Cormorant Garamond',serif",
-        color: T1,
-        background: "#fff",
+      style: _objectSpread(_objectSpread({}, input), {}, {
         resize: "vertical"
-      }
+      })
     }));
   }), /*#__PURE__*/React.createElement("div", {
     style: {
-      position: "relative",
-      minHeight: 52,
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
+      display: "flex",
+      flexDirection: "column",
       gap: 10,
-      marginTop: 4
+      marginTop: 6,
+      position: "relative",
+      minHeight: noStage > 0 ? 140 : 110
     }
-  }, /*#__PURE__*/React.createElement("button", {
-    onClick: handleYes,
-    style: {
-      border: "1.5px solid rgba(80,180,100,0.6)",
-      borderRadius: 8,
-      padding: "15px",
-      fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 17,
-      letterSpacing: 2,
-      cursor: "pointer",
-      background: "rgba(152,251,152,0.40)",
-      color: "#1a5a2a",
-      WebkitAppearance: "none",
-      touchAction: "manipulation",
-      width: "100%"
-    }
-  }, "\u2705 \u0411\u0423\u0414\u0423!"), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement(Btn, {
+    full: true,
+    onClick: handleYes
+  }, "\u2705 \u0411\u0423\u0414\u0415\u041C \u0420\u0410\u0414\u042B \u0412\u0418\u0414\u0415\u0422\u042C \u0422\u0415\u0411\u042F!"), /*#__PURE__*/React.createElement("button", {
     onClick: handleNo,
     style: _objectSpread({
-      border: "1.5px solid ".concat(BORDER),
+      border: "1px solid ".concat(C.line),
       borderRadius: 8,
-      padding: "14px 10px",
+      padding: "13px 20px",
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: noStage > 0 ? 12 : 17,
+      fontSize: noStage > 0 ? 13 : 16,
       letterSpacing: 1,
       cursor: "pointer",
-      background: "rgba(255,218,185,0.4)",
+      background: "rgba(255,255,255,0.8)",
+      color: C.mid,
       backdropFilter: "blur(4px)",
-      color: "#6a3a10",
+      WebkitBackdropFilter: "blur(4px)",
+      WebkitAppearance: "none",
+      touchAction: "manipulation",
       position: noStage > 0 ? "absolute" : "relative",
-      width: noStage > 0 ? "calc(50% - 5px)" : "auto",
       transition: "all .3s cubic-bezier(.22,1,.36,1)",
-      zIndex: noStage > 0 ? 5 : "auto"
-    }, noStage > 0 ? btnNoSt : {})
-  }, noStage === 0 ? "😢 НЕ СМОГУ" : NO_LABELS[noStage - 1]))), (rsvpDone === null || rsvpDone === void 0 ? void 0 : rsvpDone.choice) === "yes" && screen === "rsvp" && /*#__PURE__*/React.createElement("div", {
+      zIndex: noStage > 0 ? 10 : "auto"
+    }, noStage > 0 ? noPos : {
+      width: "100%",
+      display: "block"
+    })
+  }, noStage === 0 ? "😢 Не смогу" : NO_LABELS[noStage - 1]))), (rsvpDone === null || rsvpDone === void 0 ? void 0 : rsvpDone.choice) === "yes" && screen === "rsvp" && /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: "24px",
+      padding: "30px 20px",
       textAlign: "center",
       animation: "fadeUp .5s ease",
-      background: CARD
+      background: "white"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 52,
+      fontSize: 50,
       animation: "bounce 1s ease infinite"
     }
   }, "\uD83C\uDF89"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 32,
-      letterSpacing: 2,
-      color: RED,
+      fontFamily: "'Playfair Display',serif",
+      fontSize: 28,
+      fontStyle: "italic",
+      color: C.red,
       marginTop: 10
     }
-  }, "\u0423\u0420\u0410, ", gn.toUpperCase(), "!"), /*#__PURE__*/React.createElement("div", {
+  }, "\u0423\u0440\u0430, ", gn, "!"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 16,
-      color: T2,
-      marginTop: 6
+      fontSize: 15,
+      color: C.mid,
+      marginTop: 6,
+      lineHeight: 1.7
     }
-  }, "\u041F\u0435\u0440\u0435\u0445\u043E\u0434\u0438 \u043A \u0432\u044B\u0431\u043E\u0440\u0443 \u043F\u043E\u0434\u0430\u0440\u043A\u0430 \uD83C\uDFB0")), screen === "done_no" && /*#__PURE__*/React.createElement("div", {
+  }, "\u0411\u0443\u0434\u0435\u043C \u0440\u0430\u0434\u044B \u0442\u0435\u0431\u044F \u0432\u0438\u0434\u0435\u0442\u044C!", /*#__PURE__*/React.createElement("br", null), "\u0422\u0435\u043F\u0435\u0440\u044C \u0432\u044B\u0431\u0435\u0440\u0438 \u043F\u043E\u0434\u0430\u0440\u043E\u043A \uD83C\uDFB0")), screen === "done_no" && /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: "36px 24px",
+      padding: "40px 20px",
       textAlign: "center",
       animation: "fadeUp .5s ease",
-      background: CARD
+      background: "white"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 52
+      fontSize: 50
     }
   }, "\uD83D\uDE08"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 26,
+      fontSize: 24,
       letterSpacing: 2,
-      color: T1,
+      color: C.ink,
       marginTop: 12
     }
   }, "\u0412 \u0427\u0401\u0420\u041D\u042B\u0419 \u0421\u041F\u0418\u0421\u041E\u041A \u041F\u041E\u041F\u0410\u041B(\u0410)"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 20,
+      fontSize: 18,
       fontStyle: "italic",
-      color: RED,
+      color: C.red,
       marginTop: 6
     }
   }, gn), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 15,
-      color: T2,
+      color: C.mid,
       marginTop: 10,
       lineHeight: 1.7
     }
-  }, "\u0428\u0443\u0442\u0438\u043C \uD83D\uDE05 \u0416\u0430\u043B\u044C, \u0447\u0442\u043E \u043D\u0435 \u043F\u0440\u0438\u0434\u0451\u0448\u044C. \u0411\u0443\u0434\u0435\u043C \u0441\u043A\u0443\u0447\u0430\u0442\u044C \uD83D\uDC95")), screen === "spinner" && isYes && /*#__PURE__*/React.createElement("div", {
+  }, "\u0428\u0443\u0442\u0438\u043C \uD83D\uDE05", /*#__PURE__*/React.createElement("br", null), "\u0416\u0430\u043B\u044C, \u0447\u0442\u043E \u043D\u0435 \u043F\u0440\u0438\u0434\u0451\u0448\u044C. \u0411\u0443\u0434\u0435\u043C \u0441\u043A\u0443\u0447\u0430\u0442\u044C \uD83D\uDC95")), screen === "spinner" && isYes && /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: "20px 20px 30px",
+      padding: "24px 20px 30px",
       animation: "fadeUp .4s ease both",
-      background: CARD
+      background: "white"
     }
   }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 26,
-      letterSpacing: 3,
-      color: T1,
-      marginBottom: 4,
-      textAlign: "center"
-    }
+    style: sectionTitle
   }, "\uD83C\uDFB0 \u0421\u041F\u0418\u041D\u041D\u0415\u0420 \u041F\u041E\u0414\u0410\u0420\u041A\u041E\u0412"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 14,
-      color: T3,
-      textAlign: "center",
-      marginBottom: 20
-    }
+    style: subtitle
   }, "\u0421\u0443\u0434\u044C\u0431\u0430 \u0432\u044B\u0431\u0435\u0440\u0435\u0442 \u2014 \u043A\u043E\u043C\u0443 \u0438 \u0447\u0442\u043E \u043F\u043E\u0434\u0430\u0440\u0438\u0448\u044C"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
-      border: "1px solid ".concat(BORDER),
+      border: "1px solid ".concat(C.line),
       borderRadius: 50,
       overflow: "hidden",
       marginBottom: 24
@@ -1658,14 +1584,15 @@ function App() {
         border: "none",
         padding: "11px",
         fontFamily: "'Bebas Neue',sans-serif",
-        fontSize: 16,
+        fontSize: 15,
         letterSpacing: 2,
         cursor: "pointer",
-        background: who === w ? pastel(i).bg : "transparent",
-        color: who === w ? pastel(i).text : T2,
-        transition: "all .2s",
-        borderRight: w === "vika" ? "1px solid ".concat(BORDER) : "none",
-        backdropFilter: "blur(4px)"
+        background: who === w ? "rgba(0,0,0,0.07)" : "transparent",
+        color: C.ink,
+        transition: "background .2s",
+        borderRight: w === "vika" ? "1px solid ".concat(C.line) : "none",
+        WebkitAppearance: "none",
+        touchAction: "manipulation"
       }
     }, w === "vika" ? "🌸 ВИКЕ" : "⭐ КАТЕ");
   })), (!who || who === "vika") && /*#__PURE__*/React.createElement("div", {
@@ -1675,291 +1602,277 @@ function App() {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 22,
+      fontSize: 20,
       fontWeight: 900,
       fontStyle: "italic",
-      color: RED,
+      color: C.red,
       marginBottom: 18,
       textAlign: "center"
     }
   }, "\u0412\u0438\u043A\u0430"), /*#__PURE__*/React.createElement(Wheel, {
     items: WL.vika,
-    angle: vikaAngle,
-    spinning: vikaSpin,
+    angle: vaAngle,
+    spinning: vaSpin,
     onSpin: function onSpin() {
       return doSpin("vika");
     },
-    label: "\u041A\u0420\u0423\u0422\u0418\u0422\u042C \u0414\u041B\u042F \u0412\u0418\u041A\u0418",
-    colorIdx: 0
-  }), vikaRes && !vikaSpin && /*#__PURE__*/React.createElement("div", {
-    style: _objectSpread(_objectSpread({}, cs), {}, {
-      animation: "reveal .5s cubic-bezier(.22,1,.36,1) both",
+    label: "\u041A\u0420\u0423\u0422\u0418\u0422\u042C \u0414\u041B\u042F \u0412\u0418\u041A\u0418 \uD83C\uDFB0"
+  }), vaRes && !vaSpin && /*#__PURE__*/React.createElement("div", {
+    style: _objectSpread(_objectSpread({}, card), {}, {
+      animation: "reveal .5s ease both",
       marginTop: 18,
       textAlign: "center"
     })
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 30,
+      fontSize: 28,
       marginBottom: 8
     }
-  }, vikaRes.emoji), /*#__PURE__*/React.createElement("div", {
+  }, vaRes.emoji), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 18,
+      fontSize: 17,
       fontWeight: 700,
-      color: T1,
+      color: C.ink,
       marginBottom: 4
     }
-  }, vikaRes.text), /*#__PURE__*/React.createElement("div", {
+  }, vaRes.text), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 13,
-      color: T3,
+      color: C.soft,
       fontStyle: "italic",
       marginBottom: 12
     }
-  }, vikaRes.hint), vikaRes.multi && getReservedList(vikaRes.id).length > 0 && /*#__PURE__*/React.createElement("div", {
+  }, vaRes.hint), vaRes.multi && resList(vaRes.id).length > 0 && /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 12,
-      color: T3,
+      color: C.soft,
       marginBottom: 10
     }
-  }, "\u0411\u0440\u043E\u043D\u0438\u0440\u0443\u044E\u0442: ", getReservedList(vikaRes.id).join(", ")), vikaMsg && /*#__PURE__*/React.createElement("div", {
+  }, "\u0423\u0436\u0435 \u0431\u0440\u043E\u043D\u0438\u0440\u0443\u044E\u0442: ", resList(vaRes.id).join(", ")), vaMsg && /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 14,
       color: "#2a7a3b",
-      marginBottom: 12
+      marginBottom: 10
     }
-  }, vikaMsg), !isBlocked(vikaRes.id) && /*#__PURE__*/React.createElement("div", {
+  }, vaMsg), !isBlocked(vaRes.id) && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 8,
       justifyContent: "center",
       flexWrap: "wrap"
     }
-  }, /*#__PURE__*/React.createElement(PBtn, {
+  }, /*#__PURE__*/React.createElement(Btn, {
     onClick: function onClick() {
-      return doReserve(vikaRes, false, setVikaMsg);
-    },
-    colorIdx: 0
-  }, "\uD83C\uDF81 \u0417\u0430\u0431\u0440\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u0442\u044C"), /*#__PURE__*/React.createElement(PBtn, {
+      return doReserve(vaRes, false, setVaMsg);
+    }
+  }, "\uD83C\uDF81 \u0417\u0430\u0431\u0440\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u0442\u044C"), /*#__PURE__*/React.createElement(Btn, {
     onClick: function onClick() {
-      return doReserve(vikaRes, true, setVikaMsg);
-    },
-    colorIdx: 4
-  }, "\uD83D\uDC8C \u0421\u0432\u043E\u0439 / \u0432 \u0441\u043A\u043B\u0430\u0434\u0447\u0438\u043D\u0443")), isBlocked(vikaRes.id) && /*#__PURE__*/React.createElement("div", {
+      return doReserve(vaRes, true, setVaMsg);
+    }
+  }, "\uD83D\uDC8C \u0421\u0432\u043E\u0439 / \u0432 \u0441\u043A\u043B\u0430\u0434\u0447\u0438\u043D\u0443")), isBlocked(vaRes.id) && /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 13,
-      color: T3,
+      color: C.soft,
       fontStyle: "italic"
     }
-  }, "\u042D\u0442\u043E\u0442 \u043F\u043E\u0434\u0430\u0440\u043E\u043A \u0443\u0436\u0435 \u0432\u044B\u0431\u0440\u0430\u043B\u0438 \u2014 \u043F\u043E\u043A\u0440\u0443\u0442\u0438 \u0435\u0449\u0451 \u0440\u0430\u0437!"))), (!who || who === "katya") && /*#__PURE__*/React.createElement("div", {
+  }, "\u0423\u0436\u0435 \u0432\u044B\u0431\u0440\u0430\u043B\u0438 \u2014 \u043F\u043E\u043A\u0440\u0443\u0442\u0438 \u0435\u0449\u0451 \u0440\u0430\u0437!"))), (!who || who === "katya") && /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 20
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 22,
+      fontSize: 20,
       fontWeight: 900,
       fontStyle: "italic",
-      color: T1,
+      color: C.ink,
       marginBottom: 18,
       textAlign: "center"
     }
   }, "\u041A\u0430\u0442\u044F"), /*#__PURE__*/React.createElement(Wheel, {
     items: WL.katya,
-    angle: katAngle,
-    spinning: katSpin,
+    angle: kaAngle,
+    spinning: kaSpin,
     onSpin: function onSpin() {
       return doSpin("katya");
     },
-    label: "\u041A\u0420\u0423\u0422\u0418\u0422\u042C \u0414\u041B\u042F \u041A\u0410\u0422\u0418",
-    colorIdx: 1
-  }), katRes && !katSpin && /*#__PURE__*/React.createElement("div", {
-    style: _objectSpread(_objectSpread({}, cs), {}, {
-      animation: "reveal .5s cubic-bezier(.22,1,.36,1) both",
+    label: "\u041A\u0420\u0423\u0422\u0418\u0422\u042C \u0414\u041B\u042F \u041A\u0410\u0422\u0418 \uD83C\uDFB0"
+  }), kaRes && !kaSpin && /*#__PURE__*/React.createElement("div", {
+    style: _objectSpread(_objectSpread({}, card), {}, {
+      animation: "reveal .5s ease both",
       marginTop: 18,
       textAlign: "center"
     })
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 30,
+      fontSize: 28,
       marginBottom: 8
     }
-  }, katRes.emoji), /*#__PURE__*/React.createElement("div", {
+  }, kaRes.emoji), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 18,
+      fontSize: 17,
       fontWeight: 700,
-      color: T1,
+      color: C.ink,
       marginBottom: 4
     }
-  }, katRes.text), /*#__PURE__*/React.createElement("div", {
+  }, kaRes.text), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 13,
-      color: T3,
+      color: C.soft,
       fontStyle: "italic",
       marginBottom: 12
     }
-  }, katRes.hint), katRes.multi && getReservedList(katRes.id).length > 0 && /*#__PURE__*/React.createElement("div", {
+  }, kaRes.hint), kaRes.multi && resList(kaRes.id).length > 0 && /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 12,
-      color: T3,
+      color: C.soft,
       marginBottom: 10
     }
-  }, "\u0411\u0440\u043E\u043D\u0438\u0440\u0443\u044E\u0442: ", getReservedList(katRes.id).join(", ")), katMsg && /*#__PURE__*/React.createElement("div", {
+  }, "\u0423\u0436\u0435 \u0431\u0440\u043E\u043D\u0438\u0440\u0443\u044E\u0442: ", resList(kaRes.id).join(", ")), kaMsg && /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 14,
       color: "#2a7a3b",
-      marginBottom: 12
+      marginBottom: 10
     }
-  }, katMsg), !isBlocked(katRes.id) && /*#__PURE__*/React.createElement("div", {
+  }, kaMsg), !isBlocked(kaRes.id) && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 8,
       justifyContent: "center",
       flexWrap: "wrap"
     }
-  }, /*#__PURE__*/React.createElement(PBtn, {
+  }, /*#__PURE__*/React.createElement(Btn, {
     onClick: function onClick() {
-      return doReserve(katRes, false, setKatMsg);
-    },
-    colorIdx: 1
-  }, "\uD83C\uDF81 \u0417\u0430\u0431\u0440\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u0442\u044C"), /*#__PURE__*/React.createElement(PBtn, {
+      return doReserve(kaRes, false, setKaMsg);
+    }
+  }, "\uD83C\uDF81 \u0417\u0430\u0431\u0440\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u0442\u044C"), /*#__PURE__*/React.createElement(Btn, {
     onClick: function onClick() {
-      return doReserve(katRes, true, setKatMsg);
-    },
-    colorIdx: 4
-  }, "\uD83D\uDC8C \u0421\u0432\u043E\u0439 / \u0432 \u0441\u043A\u043B\u0430\u0434\u0447\u0438\u043D\u0443")), isBlocked(katRes.id) && /*#__PURE__*/React.createElement("div", {
+      return doReserve(kaRes, true, setKaMsg);
+    }
+  }, "\uD83D\uDC8C \u0421\u0432\u043E\u0439 / \u0432 \u0441\u043A\u043B\u0430\u0434\u0447\u0438\u043D\u0443")), isBlocked(kaRes.id) && /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 13,
-      color: T3,
+      color: C.soft,
       fontStyle: "italic"
     }
-  }, "\u042D\u0442\u043E\u0442 \u043F\u043E\u0434\u0430\u0440\u043E\u043A \u0443\u0436\u0435 \u0432\u044B\u0431\u0440\u0430\u043B\u0438 \u2014 \u043F\u043E\u043A\u0440\u0443\u0442\u0438 \u0435\u0449\u0451 \u0440\u0430\u0437!"))), /*#__PURE__*/React.createElement("div", {
+  }, "\u0423\u0436\u0435 \u0432\u044B\u0431\u0440\u0430\u043B\u0438 \u2014 \u043F\u043E\u043A\u0440\u0443\u0442\u0438 \u0435\u0449\u0451 \u0440\u0430\u0437!"))), /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center",
       paddingTop: 8
     }
-  }, /*#__PURE__*/React.createElement(PBtn, {
+  }, /*#__PURE__*/React.createElement(Btn, {
     onClick: function onClick() {
       return setScreen("mission");
-    },
-    colorIdx: 2
+    }
   }, "\u0414\u0410\u041B\u0415\u0415: \u0417\u0410\u0414\u0410\u041D\u0418\u0415 \uD83C\uDFAD \u2192"))), screen === "mission" && isYes && /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: "20px 20px 30px",
+      padding: "24px 20px 30px",
       animation: "fadeUp .4s ease both",
-      background: CARD
+      background: "white"
     }
   }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 26,
-      letterSpacing: 3,
-      color: T1,
-      marginBottom: 4,
-      textAlign: "center"
-    }
+    style: sectionTitle
   }, "\uD83C\uDFAD \u0417\u0410\u0414\u0410\u041D\u0418\u0415"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 16,
+      fontSize: 15,
       fontStyle: "italic",
-      color: RED,
+      color: C.red,
       textAlign: "center",
-      marginBottom: 16
+      marginBottom: 20
     }
   }, "\u0422\u044B \u0436\u0435 \u043D\u0435 \u0434\u0443\u043C\u0430\u043B(\u0430) \u0442\u0430\u043A \u043F\u0440\u043E\u0441\u0442\u043E \u043E\u0442\u0434\u0435\u043B\u0430\u0442\u044C\u0441\u044F? \uD83D\uDE08"), /*#__PURE__*/React.createElement("div", {
-    style: _objectSpread(_objectSpread({}, cs), {}, {
-      background: "#fafaf8"
+    style: _objectSpread(_objectSpread({}, card), {}, {
+      background: "#fafafa",
+      marginBottom: 20
     })
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 13,
+      fontSize: 12,
       letterSpacing: 2,
-      color: T3,
+      color: C.soft,
       marginBottom: 10
     }
   }, "\u041A\u0410\u041A \u042D\u0422\u041E \u0420\u0410\u0411\u041E\u0422\u0410\u0415\u0422"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 15,
-      color: T1,
+      color: C.ink,
       lineHeight: 1.85
     }
-  }, "\u0423 \u043A\u0430\u0436\u0434\u043E\u0433\u043E \u0433\u043E\u0441\u0442\u044F \u0431\u0443\u0434\u0435\u0442 ", /*#__PURE__*/React.createElement("b", null, "\u043E\u0442\u043A\u0440\u044B\u0442\u0430\u044F \u043C\u0438\u0441\u0441\u0438\u044F"), " \u0438 ", /*#__PURE__*/React.createElement("b", null, "\u0441\u0435\u043A\u0440\u0435\u0442\u043D\u0430\u044F \u0440\u043E\u043B\u044C"), ".", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "\uD83C\uDFAF \u041E\u0442\u043A\u0440\u044B\u0442\u0430\u044F \u043C\u0438\u0441\u0441\u0438\u044F"), " \u2014 \u043E\u0444\u0438\u0446\u0438\u0430\u043B\u044C\u043D\u0430\u044F \u0437\u0430\u0434\u0430\u0447\u0430, \u043A\u043E\u0442\u043E\u0440\u0443\u044E \u043D\u0443\u0436\u043D\u043E \u043F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u0438\u0442\u044C \u0438 \u043F\u0440\u0435\u0437\u0435\u043D\u0442\u043E\u0432\u0430\u0442\u044C \u043F\u0435\u0440\u0435\u0434 \u0432\u0441\u0435\u043C\u0438 \u0432 \u043A\u0430\u043A\u043E\u0439-\u0442\u043E \u043C\u043E\u043C\u0435\u043D\u0442 \u0432\u0435\u0447\u0435\u0440\u0430.", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "\uD83D\uDD75\uFE0F \u0421\u0435\u043A\u0440\u0435\u0442\u043D\u0430\u044F \u0440\u043E\u043B\u044C"), " \u2014 \u0441\u043A\u0440\u044B\u0442\u043E\u0435 \u0437\u0430\u0434\u0430\u043D\u0438\u0435, \u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u043D\u0443\u0436\u043D\u043E \u043D\u0435\u0437\u0430\u043C\u0435\u0442\u043D\u043E \u043E\u0442\u044B\u0433\u0440\u044B\u0432\u0430\u0442\u044C \u0432\u0435\u0441\u044C \u043F\u0440\u0430\u0437\u0434\u043D\u0438\u043A. \u041D\u0438\u043A\u0442\u043E \u043D\u0435 \u0434\u043E\u043B\u0436\u0435\u043D \u0434\u043E\u0433\u0430\u0434\u0430\u0442\u044C\u0441\u044F.")), !mix ? /*#__PURE__*/React.createElement("div", {
+  }, "\u0423 \u043A\u0430\u0436\u0434\u043E\u0433\u043E \u0433\u043E\u0441\u0442\u044F \u2014 ", /*#__PURE__*/React.createElement("b", null, "\u043E\u0442\u043A\u0440\u044B\u0442\u0430\u044F \u043C\u0438\u0441\u0441\u0438\u044F"), " \u0438 ", /*#__PURE__*/React.createElement("b", null, "\u0441\u0435\u043A\u0440\u0435\u0442\u043D\u0430\u044F \u0440\u043E\u043B\u044C"), ".", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "\uD83C\uDFAF \u041E\u0442\u043A\u0440\u044B\u0442\u0430\u044F \u043C\u0438\u0441\u0441\u0438\u044F"), " \u2014 \u0437\u0430\u0434\u0430\u0447\u0430, \u043A\u043E\u0442\u043E\u0440\u0443\u044E \u043D\u0443\u0436\u043D\u043E \u043F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u0438\u0442\u044C \u0438 \u043F\u0440\u0435\u0437\u0435\u043D\u0442\u043E\u0432\u0430\u0442\u044C \u043F\u0435\u0440\u0435\u0434 \u0432\u0441\u0435\u043C\u0438.", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "\uD83D\uDD75\uFE0F \u0421\u0435\u043A\u0440\u0435\u0442\u043D\u0430\u044F \u0440\u043E\u043B\u044C"), " \u2014 \u043D\u0435\u0437\u0430\u043C\u0435\u0442\u043D\u043E\u0435 \u0437\u0430\u0434\u0430\u043D\u0438\u0435 \u043D\u0430 \u0432\u0435\u0441\u044C \u0432\u0435\u0447\u0435\u0440. \u041D\u0438\u043A\u0442\u043E \u043D\u0435 \u0434\u043E\u043B\u0436\u0435\u043D \u0434\u043E\u0433\u0430\u0434\u0430\u0442\u044C\u0441\u044F.")), !mix ? /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center",
       paddingTop: 8
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 52,
+      fontSize: 50,
       marginBottom: 16,
       animation: "bounce 2s ease-in-out infinite"
     }
-  }, "\uD83C\uDFB2"), /*#__PURE__*/React.createElement(PBtn, {
-    onClick: getMix,
-    colorIdx: 3
+  }, "\uD83C\uDFB2"), /*#__PURE__*/React.createElement(Btn, {
+    onClick: getMix
   }, "\u041F\u041E\u041B\u0423\u0427\u0418\u0422\u042C \u041C\u0418\u0421\u0421\u0418\u042E \u0418 \u0420\u041E\u041B\u042C")) : /*#__PURE__*/React.createElement("div", {
     style: {
-      animation: "mIn .5s cubic-bezier(.22,1,.36,1) both"
+      animation: "reveal .5s ease both"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 12,
-      color: T3,
+      fontSize: 11,
+      color: C.soft,
       textAlign: "center",
       marginBottom: 12,
       letterSpacing: 1
     }
   }, "\u041C\u0418\u0428 #", mix.id, ": ", mix.name), /*#__PURE__*/React.createElement("div", {
-    style: _objectSpread(_objectSpread({}, cs), {}, {
-      background: "#fef9f0",
-      borderColor: "#e8d8b0"
+    style: _objectSpread(_objectSpread({}, card), {}, {
+      background: "#fffdf5",
+      borderColor: "#e8ddb0",
+      marginBottom: 12
     })
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 14,
+      fontSize: 12,
       letterSpacing: 2,
       color: "#8a6010",
-      marginBottom: 12
+      marginBottom: 10
     }
   }, "\uD83C\uDFAF \u041E\u0422\u041A\u0420\u042B\u0422\u0410\u042F \u041C\u0418\u0421\u0421\u0418\u042F"), /*#__PURE__*/React.createElement("pre", null, mix.mission)), /*#__PURE__*/React.createElement("div", {
-    style: _objectSpread(_objectSpread({}, cs), {}, {
-      background: "#f2f4fe",
-      borderColor: "#c4cce8"
+    style: _objectSpread(_objectSpread({}, card), {}, {
+      background: "#f5f7ff",
+      borderColor: "#c0cce8",
+      marginBottom: 16
     })
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 14,
+      fontSize: 12,
       letterSpacing: 2,
       color: "#2a4a8a",
-      marginBottom: 12
+      marginBottom: 10
     }
   }, "\uD83D\uDD75\uFE0F \u0421\u0415\u041A\u0420\u0415\u0422\u041D\u0410\u042F \u0420\u041E\u041B\u042C"), /*#__PURE__*/React.createElement("pre", null, mix.role)), !accepted ? /*#__PURE__*/React.createElement("div", {
     style: {
-      textAlign: "center",
-      paddingTop: 4
+      textAlign: "center"
     }
-  }, /*#__PURE__*/React.createElement(PBtn, {
+  }, /*#__PURE__*/React.createElement(Btn, {
     onClick: function onClick() {
       return setAccepted(true);
-    },
-    colorIdx: 5
+    }
   }, "\uD83D\uDD75\uFE0F \u0421\u0422\u0410\u0422\u042C \u0422\u0410\u0419\u041D\u042B\u041C \u0410\u0413\u0415\u041D\u0422\u041E\u041C \u041D\u0410 \u0414\u0420")) : /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center"
@@ -1972,34 +1885,20 @@ function App() {
       color: "#2a7a3b",
       marginBottom: 14
     }
-  }, "\u041C\u0438\u0441\u0441\u0438\u044F \u043F\u0440\u0438\u043D\u044F\u0442\u0430. \u0410\u0433\u0435\u043D\u0442 \u0430\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u043D \u2705"), /*#__PURE__*/React.createElement(PBtn, {
+  }, "\u041C\u0438\u0441\u0441\u0438\u044F \u043F\u0440\u0438\u043D\u044F\u0442\u0430. \u0410\u0433\u0435\u043D\u0442 \u0430\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u043D \u2705"), /*#__PURE__*/React.createElement(Btn, {
     onClick: function onClick() {
       return setScreen("fortune");
-    },
-    colorIdx: 4
+    }
   }, "\uD83D\uDD2E \u0423\u0417\u041D\u0410\u0422\u042C \u0421\u0423\u0414\u042C\u0411\u0423 \u2192")))), screen === "fortune" && /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: "20px 20px 30px",
+      padding: "24px 20px 30px",
       animation: "fadeUp .4s ease both",
-      background: CARD
+      background: "white"
     }
   }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 26,
-      letterSpacing: 3,
-      color: T1,
-      marginBottom: 4,
-      textAlign: "center"
-    }
+    style: sectionTitle
   }, "\uD83D\uDD2E \u0413\u0410\u0414\u0410\u041B\u041A\u0410"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 14,
-      color: T3,
-      textAlign: "center",
-      marginBottom: 20
-    }
+    style: subtitle
   }, "\u041E\u0434\u043D\u043E \u043F\u0440\u0435\u0434\u0441\u043A\u0430\u0437\u0430\u043D\u0438\u0435 \u2014 \u043D\u0430 \u0432\u0435\u0441\u044C \u0432\u0435\u0447\u0435\u0440"), !fortUsed && /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center",
@@ -2013,32 +1912,32 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      width: 140,
-      height: 140,
+      width: 130,
+      height: 130,
       borderRadius: "50%",
-      background: "radial-gradient(circle at 35% 32%, #6a3a90, #2a0050 60%, #0d001a)",
-      boxShadow: "0 4px 32px rgba(90,48,128,0.25)",
+      background: "radial-gradient(circle at 35% 32%, #6a3a90, #1a0040 60%, #0a0018)",
+      boxShadow: "0 4px 30px rgba(80,40,120,0.25)",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       flexDirection: "column",
       margin: "0 auto",
-      animation: fortAnim ? "ballPulse 0.4s ease-in-out infinite" : "none"
+      animation: fortAnim ? "ballPulse .4s ease-in-out infinite" : "none"
     }
   }, fortAnim ? /*#__PURE__*/React.createElement("div", {
     style: {
       color: "rgba(255,255,255,0.7)",
-      fontSize: 38
+      fontSize: 34
     }
   }, "\u2728") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     style: {
       color: "rgba(255,255,255,0.3)",
-      fontSize: 32
+      fontSize: 28
     }
   }, "\u2726"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 12,
+      fontSize: 11,
       color: "rgba(255,255,255,0.5)",
       letterSpacing: 2,
       textTransform: "uppercase",
@@ -2046,66 +1945,66 @@ function App() {
     }
   }, "\u043D\u0430\u0436\u043C\u0438"))))), fortune && !showWelcome && /*#__PURE__*/React.createElement("div", {
     style: {
-      animation: "reveal .5s cubic-bezier(.22,1,.36,1) both"
+      animation: "reveal .5s ease both"
     }
   }, /*#__PURE__*/React.createElement("div", {
-    style: _objectSpread(_objectSpread({}, cs), {}, {
-      background: "#faf5ff",
+    style: _objectSpread(_objectSpread({}, card), {}, {
+      background: "#fdf8ff",
       borderColor: "#d8c0f0",
       textAlign: "center",
-      marginBottom: 16
+      marginBottom: 14
     })
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 44,
-      marginBottom: 12
+      fontSize: 42,
+      marginBottom: 10
     }
   }, fortune.emoji), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 18,
+      fontSize: 17,
       fontStyle: "italic",
-      color: T1,
+      color: C.ink,
       lineHeight: 1.8
     }
   }, fortune.text)), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 12,
-      color: T3,
+      color: C.soft,
       textAlign: "center",
       fontStyle: "italic",
-      animation: "tickP 1s ease-in-out infinite"
+      animation: "tickP 1.5s ease-in-out infinite"
     }
   }, "\u043F\u043E\u0434\u043E\u0436\u0434\u0438 \u043D\u0435\u043C\u043D\u043E\u0433\u043E... \u2728")), showWelcome && /*#__PURE__*/React.createElement("div", {
     style: {
-      animation: "reveal .8s cubic-bezier(.22,1,.36,1) both",
+      animation: "reveal .8s ease both",
       textAlign: "center",
-      padding: "28px 16px",
-      background: "linear-gradient(135deg,#fff5f8,#f5f8ff)",
+      padding: "30px 16px",
+      background: "linear-gradient(135deg,#fdf8ff,#f8f4ff)",
       borderRadius: 16,
-      border: "1px solid ".concat(BORDER)
+      border: "1px solid ".concat(C.line)
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 48,
+      fontSize: 46,
       marginBottom: 14
     }
   }, "\uD83C\uDF89"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 26,
+      fontSize: 24,
       fontWeight: 900,
       fontStyle: "italic",
-      color: RED,
+      color: C.red,
       lineHeight: 1.2,
       marginBottom: 10
     }
-  }, "\u041C\u044B \u0442\u0435\u0431\u044F \u0436\u0434\u0451\u043C", /*#__PURE__*/React.createElement("br", null), "\u043D\u0430 \u043D\u0430\u0448\u0435\u0439 \u0432\u0435\u0447\u0435\u0440\u0438\u043D\u043A\u0435!"), /*#__PURE__*/React.createElement("div", {
+  }, "\u0411\u0443\u0434\u0435\u043C \u0440\u0430\u0434\u044B", /*#__PURE__*/React.createElement("br", null), "\u0442\u0435\u0431\u044F \u0432\u0438\u0434\u0435\u0442\u044C!"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 16,
-      color: T2,
+      color: C.mid,
       lineHeight: 1.9,
       marginBottom: 8
     }
@@ -2113,53 +2012,66 @@ function App() {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 14,
-      color: T3,
+      color: C.soft,
       fontStyle: "italic",
-      marginBottom: 16
+      marginBottom: 18
     }
   }, "\u0411\u0443\u0434\u0435\u0442 \u0432\u0435\u0441\u0435\u043B\u043E, \u043A\u0440\u0430\u0441\u0438\u0432\u043E \u0438 \u043D\u0435\u0437\u0430\u0431\u044B\u0432\u0430\u0435\u043C\u043E \uD83E\uDD42"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 22
+      fontSize: 20
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
+      color: C.red,
       animation: "hb 1.2s ease-in-out infinite",
-      display: "inline-block",
-      color: RED
+      display: "inline-block"
     }
   }, "\u2665"), " ", /*#__PURE__*/React.createElement("span", {
     style: {
       fontFamily: "'Playfair Display',serif",
-      fontSize: 14,
-      color: T3,
+      fontSize: 13,
+      color: C.soft,
       fontStyle: "italic"
     }
   }, "\u0412\u0438\u043A\u0430 & \u041A\u0430\u0442\u044F"), " ", /*#__PURE__*/React.createElement("span", {
     style: {
+      color: C.red,
       animation: "hb 1.2s .3s ease-in-out infinite",
-      display: "inline-block",
-      color: RED
+      display: "inline-block"
     }
   }, "\u2665")))), /*#__PURE__*/React.createElement("div", {
     style: {
-      borderTop: "1px solid ".concat(BORDER),
-      padding: "14px 24px",
+      borderTop: "1px solid ".concat(C.line),
+      padding: "16px 24px",
       textAlign: "center",
-      background: CARD
+      background: "white"
     }
-  }, /*#__PURE__*/React.createElement(PBtn, {
+  }, /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
       setAdminOpen(function (o) {
         return !o;
       });
-      setPinInput("");
-      setPinError(false);
+      setPin("");
+      setPinErr(false);
     },
-    colorIdx: 5
-  }, adminOpen ? "▲ Скрыть панель" : "🔒 Панель именинниц")), adminOpen && !pinOk && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "none",
+      border: "1px solid ".concat(C.line),
+      borderRadius: 50,
+      padding: "8px 20px",
+      fontFamily: "'Cormorant Garamond',serif",
+      fontSize: 12,
+      letterSpacing: 2,
+      textTransform: "uppercase",
+      color: C.soft,
+      cursor: "pointer",
+      WebkitAppearance: "none",
+      touchAction: "manipulation"
+    }
+  }, adminOpen ? "▲ скрыть" : "🔒 Панель именинниц")), adminOpen && !pinOk && /*#__PURE__*/React.createElement("div", {
     style: {
       padding: "20px 24px",
-      background: "#fafaf8",
+      background: "#fafafa",
       textAlign: "center",
       animation: "fadeUp .3s ease"
     }
@@ -2168,189 +2080,168 @@ function App() {
       fontFamily: "'Bebas Neue',sans-serif",
       fontSize: 18,
       letterSpacing: 3,
-      color: T1,
+      color: C.ink,
       marginBottom: 6
     }
-  }, "\u0412\u0412\u0415\u0414\u0418 \u041A\u041E\u0414 \u0414\u041E\u0421\u0422\u0423\u041F\u0410"), /*#__PURE__*/React.createElement("div", {
+  }, "\u041A\u041E\u0414 \u0414\u041E\u0421\u0422\u0423\u041F\u0410"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 13,
-      color: T3,
+      color: C.soft,
       marginBottom: 16,
       fontStyle: "italic"
     }
-  }, "\u0422\u043E\u043B\u044C\u043A\u043E \u0434\u043B\u044F \u0438\u043C\u0435\u043D\u0438\u043D\u043D\u0438\u0446 \uD83D\uDD12"), /*#__PURE__*/React.createElement("input", {
+  }, "\u0422\u043E\u043B\u044C\u043A\u043E \u0434\u043B\u044F \u0438\u043C\u0435\u043D\u0438\u043D\u043D\u0438\u0446"), /*#__PURE__*/React.createElement("input", {
     type: "password",
     inputMode: "numeric",
     maxLength: 6,
-    value: pinInput,
+    value: pin,
     onChange: function onChange(e) {
-      setPinInput(e.target.value);
-      setPinError(false);
+      setPin(e.target.value);
+      setPinErr(false);
     },
     onKeyDown: function onKeyDown(e) {
       if (e.key === "Enter") {
-        if (pinInput === "2706") {
+        if (pin === PIN) {
           setPinOk(true);
-          setPinError(false);
         } else {
-          setPinError(true);
-          setPinInput("");
+          setPinErr(true);
+          setPin("");
         }
       }
     },
     placeholder: "\u2022\u2022\u2022\u2022",
     style: {
       width: 120,
-      border: "1.5px solid ".concat(pinError ? "#c8102e" : BORDER),
+      border: "1px solid ".concat(pinErr ? C.red : C.line),
       borderRadius: 8,
       padding: "12px 16px",
       fontSize: 22,
       fontFamily: "monospace",
       textAlign: "center",
       letterSpacing: 6,
-      background: "#fff",
-      color: T1,
-      marginBottom: 12,
+      background: "white",
+      color: C.ink,
       display: "block",
       margin: "0 auto 12px"
     }
-  }), pinError && /*#__PURE__*/React.createElement("div", {
+  }), pinErr && /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 13,
-      color: "#c8102e",
+      color: C.red,
       marginBottom: 10,
       fontStyle: "italic"
     }
-  }, "\u041D\u0435\u0432\u0435\u0440\u043D\u044B\u0439 \u043A\u043E\u0434 \uD83D\uDE05"), /*#__PURE__*/React.createElement(PBtn, {
+  }, "\u041D\u0435\u0432\u0435\u0440\u043D\u044B\u0439 \u043A\u043E\u0434 \uD83D\uDE05"), /*#__PURE__*/React.createElement(Btn, {
     onClick: function onClick() {
-      if (pinInput === "2706") {
+      if (pin === PIN) {
         setPinOk(true);
-        setPinError(false);
       } else {
-        setPinError(true);
-        setPinInput("");
+        setPinErr(true);
+        setPin("");
       }
-    },
-    colorIdx: 0
-  }, "\u0412\u041E\u0419\u0422\u0418")), adminOpen && pinOk && /*#__PURE__*/React.createElement("div", {
+    }
+  }, " \u0412\u041E\u0419\u0422\u0418 ")), adminOpen && pinOk && /*#__PURE__*/React.createElement("div", {
     style: {
       padding: "20px 20px 30px",
-      background: "#fafaf8",
+      background: "#fafafa",
       animation: "fadeUp .3s ease"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 22,
+      fontSize: 20,
       letterSpacing: 3,
-      color: T1,
+      color: C.ink,
       marginBottom: 18,
       textAlign: "center"
     }
   }, "\u041F\u0410\u041D\u0415\u041B\u042C \u0418\u041C\u0415\u041D\u0418\u041D\u041D\u0418\u0426"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Cormorant Garamond',serif",
-      fontSize: 12,
-      color: T3,
+      fontSize: 11,
+      color: C.soft,
       textAlign: "center",
       marginBottom: 16,
       fontStyle: "italic"
     }
-  }, "\u0414\u0430\u043D\u043D\u044B\u0435 \u043E\u0431\u043D\u043E\u0432\u043B\u044F\u044E\u0442\u0441\u044F \u043A\u0430\u0436\u0434\u044B\u0435 2 \u0441\u0435\u043A"), /*#__PURE__*/React.createElement("div", {
+  }, "\u041E\u0431\u043D\u043E\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u043A\u0430\u0436\u0434\u044B\u0435 5 \u0441\u0435\u043A"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
       gap: 12,
-      marginBottom: 16
+      marginBottom: 14
     }
   }, [{
     key: "yes",
     label: "✅ Придут",
-    bc: "rgba(152,251,152,0.4)",
-    bo: "rgba(80,180,100,0.5)",
-    tc: "#1a5a2a"
+    color: "#2a7a3b"
   }, {
     key: "no",
     label: "😈 Чёрный список",
-    bc: "rgba(255,182,193,0.4)",
-    bo: "rgba(220,130,150,0.5)",
-    tc: "#7a2040"
+    color: C.red
   }].map(function (_ref7) {
-    var _appData$key;
+    var _data$key;
     var key = _ref7.key,
-      label = _ref7.label,
-      bc = _ref7.bc,
-      bo = _ref7.bo,
-      tc = _ref7.tc;
+      lb = _ref7.label,
+      color = _ref7.color;
     return /*#__PURE__*/React.createElement("div", {
       key: key,
-      style: {
-        background: bc,
-        borderRadius: 12,
-        padding: "14px",
-        border: "1.5px solid ".concat(bo)
-      }
+      style: _objectSpread(_objectSpread({}, card), {}, {
+        borderColor: color + "44",
+        marginBottom: 0
+      })
     }, /*#__PURE__*/React.createElement("div", {
       style: {
         fontFamily: "'Bebas Neue',sans-serif",
-        fontSize: 12,
+        fontSize: 11,
         letterSpacing: 2,
-        color: tc,
+        color: color,
         marginBottom: 8
       }
-    }, label, " (", ((_appData$key = appData[key]) === null || _appData$key === void 0 ? void 0 : _appData$key.length) || 0, ")"), (appData[key] || []).length === 0 ? /*#__PURE__*/React.createElement("p", {
+    }, lb, " (", ((_data$key = data[key]) === null || _data$key === void 0 ? void 0 : _data$key.length) || 0, ")"), (data[key] || []).length === 0 ? /*#__PURE__*/React.createElement("p", {
       style: {
-        fontSize: 13,
-        color: T3,
-        fontStyle: "italic"
+        fontSize: 12,
+        color: C.soft,
+        fontStyle: "italic",
+        margin: 0
       }
-    }, "\u041F\u043E\u043A\u0430 \u043D\u0438\u043A\u043E\u0433\u043E") : (appData[key] || []).map(function (n, i) {
+    }, "\u041F\u043E\u043A\u0430 \u043D\u0438\u043A\u043E\u0433\u043E") : (data[key] || []).map(function (n, i) {
       return /*#__PURE__*/React.createElement("div", {
         key: i,
         style: {
-          fontSize: 15,
           fontFamily: "'Cormorant Garamond',serif",
-          color: T1,
-          padding: "4px 0",
-          borderBottom: "1px solid rgba(0,0,0,0.06)"
+          fontSize: 15,
+          color: C.ink,
+          padding: "3px 0",
+          borderBottom: "1px solid ".concat(C.line)
         }
       }, "\xB7 ", n);
     }));
   })), [{
-    data: appData.food,
-    label: "🍽️ ПОЖЕЛАНИЯ ПО ЕДЕ",
-    bg: "rgba(255,218,185,0.3)",
-    bo: "rgba(210,150,80,0.4)"
+    data: data.food,
+    lb: "🍽️ Пожелания по еде"
   }, {
-    data: appData.drinks,
-    label: "🥂 ПОЖЕЛАНИЯ ПО НАПИТКАМ",
-    bg: "rgba(173,216,230,0.3)",
-    bo: "rgba(100,160,200,0.4)"
+    data: data.drinks,
+    lb: "🥂 Пожелания по напиткам"
   }].map(function (_ref8) {
-    var data = _ref8.data,
-      label = _ref8.label,
-      bg = _ref8.bg,
-      bo = _ref8.bo;
-    return Object.keys(data || {}).length > 0 && /*#__PURE__*/React.createElement("div", {
-      key: label,
-      style: {
-        background: bg,
-        borderRadius: 12,
-        padding: "14px 16px",
-        border: "1.5px solid ".concat(bo),
-        marginBottom: 12
-      }
+    var d = _ref8.data,
+      lb = _ref8.lb;
+    return Object.keys(d || {}).length > 0 && /*#__PURE__*/React.createElement("div", {
+      key: lb,
+      style: _objectSpread(_objectSpread({}, card), {}, {
+        marginBottom: 10
+      })
     }, /*#__PURE__*/React.createElement("div", {
       style: {
         fontFamily: "'Bebas Neue',sans-serif",
-        fontSize: 12,
+        fontSize: 11,
         letterSpacing: 2,
-        color: T2,
-        marginBottom: 10
+        color: C.mid,
+        marginBottom: 8
       }
-    }, label), Object.entries(data).map(function (_ref9) {
+    }, lb), Object.entries(d).map(function (_ref9) {
       var _ref0 = _slicedToArray(_ref9, 2),
         n = _ref0[0],
         v = _ref0[1];
@@ -2359,29 +2250,25 @@ function App() {
         style: {
           fontFamily: "'Cormorant Garamond',serif",
           fontSize: 15,
-          color: T1,
-          marginBottom: 6,
-          lineHeight: 1.5
+          color: C.ink,
+          marginBottom: 5,
+          lineHeight: 1.4
         }
       }, /*#__PURE__*/React.createElement("b", null, n, ":"), " ", v);
     }));
-  }), Object.keys(appData.reserved || {}).length > 0 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      background: "rgba(221,160,221,0.25)",
-      borderRadius: 12,
-      padding: "14px 16px",
-      border: "1.5px solid rgba(160,80,180,0.35)",
-      marginBottom: 12
-    }
+  }), Object.keys(data.reserved || {}).length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: _objectSpread(_objectSpread({}, card), {}, {
+      marginBottom: 10
+    })
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 12,
+      fontSize: 11,
       letterSpacing: 2,
-      color: "#4a1a6a",
-      marginBottom: 10
+      color: C.mid,
+      marginBottom: 8
     }
-  }, "\uD83C\uDF81 \u041F\u041E\u0414\u0410\u0420\u041A\u0418"), Object.entries(appData.reserved).map(function (_ref1) {
+  }, "\uD83C\uDF81 \u041F\u041E\u0414\u0410\u0420\u041A\u0418"), Object.entries(data.reserved).map(function (_ref1) {
     var _ref10 = _slicedToArray(_ref1, 2),
       id = _ref10[0],
       v = _ref10[1];
@@ -2395,29 +2282,25 @@ function App() {
         key: id + i,
         style: {
           fontFamily: "'Cormorant Garamond',serif",
-          fontSize: 15,
-          color: T1,
+          fontSize: 14,
+          color: C.ink,
           marginBottom: 5
         }
       }, item.emoji, " ", /*#__PURE__*/React.createElement("b", null, item.text), " \u2192 ", who);
     }) : null;
-  })), Object.keys(appData.missions || {}).length > 0 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      background: "rgba(255,255,153,0.3)",
-      borderRadius: 12,
-      padding: "14px 16px",
-      border: "1.5px solid rgba(180,160,60,0.4)",
-      marginBottom: 12
-    }
+  })), Object.keys(data.missions || {}).length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: _objectSpread(_objectSpread({}, card), {}, {
+      marginBottom: 10
+    })
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 12,
+      fontSize: 11,
       letterSpacing: 2,
-      color: "#5a4a00",
-      marginBottom: 10
+      color: C.mid,
+      marginBottom: 8
     }
-  }, "\uD83D\uDD75\uFE0F \u041C\u0418\u0421\u0421\u0418\u0418 \u0413\u041E\u0421\u0422\u0415\u0419"), Object.entries(appData.missions).map(function (_ref11) {
+  }, "\uD83D\uDD75\uFE0F \u041C\u0418\u0421\u0421\u0418\u0418 \u0413\u041E\u0421\u0422\u0415\u0419"), Object.entries(data.missions).map(function (_ref11) {
     var _ref12 = _slicedToArray(_ref11, 2),
       n = _ref12[0],
       id = _ref12[1];
@@ -2429,52 +2312,45 @@ function App() {
       style: {
         fontFamily: "'Cormorant Garamond',serif",
         fontSize: 14,
-        color: T1,
-        marginBottom: 8,
-        paddingBottom: 8,
-        borderBottom: "1px solid rgba(0,0,0,0.06)"
+        color: C.ink,
+        marginBottom: 6,
+        paddingBottom: 6,
+        borderBottom: "1px solid ".concat(C.line)
       }
     }, /*#__PURE__*/React.createElement("b", null, n), " \u2014 \u041C\u0438\u043A\u0441 #", id, m ? ": ".concat(m.name) : "");
   })), /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center",
-      marginTop: 8
+      marginTop: 10
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
-      if (confirm("Очистить все данные?")) save({
-        yes: [],
-        no: [],
-        reserved: {},
-        food: {},
-        drinks: {},
-        missions: {}
-      });
+      if (confirm("Очистить всё?")) save(_objectSpread({}, EMPTY));
     },
     style: {
       background: "none",
-      border: "1px solid ".concat(BORDER),
+      border: "1px solid ".concat(C.line),
       borderRadius: 50,
-      padding: "8px 20px",
-      fontSize: 13,
-      color: T3,
+      padding: "7px 18px",
+      fontSize: 12,
+      color: C.soft,
       cursor: "pointer",
       fontFamily: "'Cormorant Garamond',serif"
     }
   }, "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C \u0441\u043F\u0438\u0441\u043E\u043A"))), /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center",
-      padding: "16px 24px 28px",
+      padding: "16px 24px 30px",
       fontFamily: "'Cormorant Garamond',serif",
       fontSize: 13,
-      color: T3,
+      color: C.soft,
       lineHeight: 1.9,
-      borderTop: "1px solid ".concat(BORDER),
-      background: CARD
+      borderTop: "1px solid ".concat(C.line),
+      background: "white"
     }
-  }, "\u041E\u0447\u0435\u043D\u044C \u0436\u0434\u0451\u043C! \u0411\u0443\u0434\u0443 \u0440\u0430\u0434\u0430 \u0432\u0438\u0434\u0435\u0442\u044C!\xA0", /*#__PURE__*/React.createElement("span", {
+  }, "\u0411\u0443\u0434\u0435\u043C \u0440\u0430\u0434\u044B \u0442\u0435\u0431\u044F \u0432\u0438\u0434\u0435\u0442\u044C!\xA0", /*#__PURE__*/React.createElement("span", {
     style: {
-      color: RED,
+      color: C.red,
       animation: "hb 1.2s ease-in-out infinite",
       display: "inline-block"
     }
