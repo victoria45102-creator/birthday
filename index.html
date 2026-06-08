@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,400&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:#f2ede8;font-family:'Cormorant Garamond',serif;-webkit-tap-highlight-color:transparent;min-height:100vh;}
+body{background:#f2ede8;font-family:'Cormorant Garamond',serif;-webkit-tap-highlight-color:transparent;min-height:100vh;cursor:pointer;}
 .card{background:#fff;border-radius:0;}
 .section{padding:24px 20px;border-top:1px solid #e8e4e0;}
 h1{font-family:'Bebas Neue',sans-serif;font-size:64px;line-height:.88;color:#1a1a1a;letter-spacing:1px;}
@@ -42,6 +42,8 @@ hr{border:none;border-top:1px solid #e8e4e0;margin:10px 24px;}
   -webkit-user-select:none;
   transition:background .15s;
   text-decoration:none;
+  position:relative;
+  z-index:1;
 }
 .btn:active{background:rgba(0,0,0,0.06);}
 .btn-dark{background:#1a1a1a;color:#fff;border-color:#1a1a1a;}
@@ -111,7 +113,7 @@ textarea{resize:vertical;min-height:70px;}
 
 /* СТЕП-БАР */
 .stepbar{display:flex;border-top:1px solid #e8e4e0;border-bottom:1px solid #e8e4e0;background:white;}
-.step{flex:1;text-align:center;padding:10px 4px;cursor:pointer;border-bottom:2px solid transparent;font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:1px;color:#aaa;touch-action:manipulation;}
+.step{flex:1;text-align:center;padding:10px 4px;cursor:pointer;border-bottom:2px solid transparent;font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:1px;color:#aaa;touch-action:manipulation;background:none;border-left:none;border-right:none;border-top:none;-webkit-appearance:none;}
 .step.active{color:#1a1a1a;border-bottom-color:#1a1a1a;}
 
 /* ADMIN */
@@ -230,15 +232,15 @@ textarea{resize:vertical;min-height:70px;}
 
     <!-- CTA -->
     <div style="padding:0 20px 24px;" id="ctaBlock">
-      <button class="btn btn-dark" onclick="goRsvp()">Я ПРИДУ! ✅</button>
+      <button class="btn btn-dark" ontouchstart="" onclick="goRsvp()">Я ПРИДУ! ✅</button>
     </div>
   </div><!-- /header -->
 
   <!-- СТЕП-БАР (скрыт пока не подтвердили) -->
   <div class="stepbar hidden" id="stepbar">
-    <div class="step active" id="step-spinner" onclick="goScreen('spinner')">🎰 Подарок</div>
-    <div class="step" id="step-mission" onclick="goScreen('mission')">🎭 Задание</div>
-    <div class="step" id="step-fortune" onclick="goScreen('fortune')">🔮 Гадалка</div>
+    <button class="step active" id="step-spinner" ontouchstart="" onclick="goScreen('spinner')">🎰 Подарок</button>
+    <button class="step" id="step-mission" ontouchstart="" onclick="goScreen('mission')">🎭 Задание</button>
+    <button class="step" id="step-fortune" ontouchstart="" onclick="goScreen('fortune')">🔮 Гадалка</button>
   </div>
 
   <!-- RSVP -->
@@ -256,8 +258,8 @@ textarea{resize:vertical;min-height:70px;}
     <textarea id="drinkPref" placeholder="Алкоголь, сок, вода?"></textarea>
 
     <div style="margin-top:16px;">
-      <button class="btn btn-dark" onclick="submitYes()" id="yesBtn">Я ПРИДУ! ✅</button>
-      <button class="btn no-btn" id="noBtn" onclick="handleNo()">😢 Не смогу</button>
+      <button class="btn btn-dark" ontouchstart="" onclick="submitYes()" id="yesBtn">Я ПРИДУ! ✅</button>
+      <button class="btn no-btn" id="noBtn" ontouchstart="" onclick="handleNo()">😢 Не смогу</button>
     </div>
   </div>
 
@@ -282,8 +284,8 @@ textarea{resize:vertical;min-height:70px;}
     <div class="subtitle">Судьба выберет — кому и что подаришь</div>
 
     <div style="display:flex;border:1px solid #e8e4e0;border-radius:50px;overflow:hidden;margin-bottom:24px;">
-      <button class="btn" style="flex:1;border-radius:0;border:none;border-right:1px solid #e8e4e0;margin:0;background:transparent;" id="tabVika" onclick="setWho('vika')">🌸 ВИКЕ</button>
-      <button class="btn" style="flex:1;border-radius:0;border:none;margin:0;background:transparent;" id="tabKatya" onclick="setWho('katya')">⭐ КАТЕ</button>
+      <button class="btn" style="flex:1;border-radius:0;border:none;border-right:1px solid #e8e4e0;margin:0;background:transparent;" id="tabVika" ontouchstart="" onclick="setWho('vika')">🌸 ВИКЕ</button>
+      <button class="btn" style="flex:1;border-radius:0;border:none;margin:0;background:transparent;" id="tabKatya" ontouchstart="" onclick="setWho('katya')">⭐ КАТЕ</button>
     </div>
 
     <!-- Vika wheel -->
@@ -294,7 +296,7 @@ textarea{resize:vertical;min-height:70px;}
           <svg width="10" height="10" viewBox="0 0 20 18" style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);z-index:10;"><polygon points="10,1 19,17 1,17" fill="#555" opacity=".7"/></svg>
           <svg id="wheelVika" width="210" height="210" viewBox="0 0 210 210" class="wheel-svg"></svg>
         </div>
-        <button class="btn" id="spinVikaBtn" onclick="spinWheel('vika')">КРУТИТЬ ДЛЯ ВИКИ 🎰</button>
+        <button class="btn" id="spinVikaBtn" ontouchstart="" onclick="spinWheel('vika')">КРУТИТЬ ДЛЯ ВИКИ 🎰</button>
       </div>
       <div class="result-card hidden" id="vikaResult"></div>
     </div>
@@ -307,12 +309,12 @@ textarea{resize:vertical;min-height:70px;}
           <svg width="10" height="10" viewBox="0 0 20 18" style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);z-index:10;"><polygon points="10,1 19,17 1,17" fill="#555" opacity=".7"/></svg>
           <svg id="wheelKatya" width="210" height="210" viewBox="0 0 210 210" class="wheel-svg"></svg>
         </div>
-        <button class="btn" id="spinKatyaBtn" onclick="spinWheel('katya')">КРУТИТЬ ДЛЯ КАТИ 🎰</button>
+        <button class="btn" id="spinKatyaBtn" ontouchstart="" onclick="spinWheel('katya')">КРУТИТЬ ДЛЯ КАТИ 🎰</button>
       </div>
       <div class="result-card hidden" id="katyaResult"></div>
     </div>
 
-    <button class="btn btn-dark" style="margin-top:24px;" onclick="goScreen('mission')">ДАЛЕЕ: ЗАДАНИЕ 🎭 →</button>
+    <button class="btn btn-dark" style="margin-top:24px;" ontouchstart="" onclick="goScreen('mission')">ДАЛЕЕ: ЗАДАНИЕ 🎭 →</button>
   </div>
 
   <!-- MISSION -->
@@ -327,7 +329,7 @@ textarea{resize:vertical;min-height:70px;}
 
     <div id="missionGetBlock" style="text-align:center;">
       <div style="font-size:50px;margin-bottom:16px;">🎲</div>
-      <button class="btn btn-dark" onclick="getMission()">ПОЛУЧИТЬ МИССИЮ И РОЛЬ</button>
+      <button class="btn btn-dark" ontouchstart="" onclick="getMission()">ПОЛУЧИТЬ МИССИЮ И РОЛЬ</button>
     </div>
 
     <div id="missionCard" class="hidden">
@@ -340,10 +342,10 @@ textarea{resize:vertical;min-height:70px;}
         <div class="mission-label" style="color:#2a4a8a;">🕵️ СЕКРЕТНАЯ РОЛЬ</div>
         <div class="mission-text" id="roleText"></div>
       </div>
-      <button class="btn btn-dark" id="acceptBtn" onclick="acceptMission()">🕵️ СТАТЬ ТАЙНЫМ АГЕНТОМ НА ДР</button>
+      <button class="btn btn-dark" id="acceptBtn" ontouchstart="" onclick="acceptMission()">🕵️ СТАТЬ ТАЙНЫМ АГЕНТОМ НА ДР</button>
       <div class="hidden" id="missionAccepted" style="text-align:center;margin-top:16px;">
         <div style="font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:#2a7a3b;margin-bottom:14px;">Миссия принята. Агент активирован ✅</div>
-        <button class="btn btn-dark" onclick="goScreen('fortune')">🔮 УЗНАТЬ СУДЬБУ →</button>
+        <button class="btn btn-dark" ontouchstart="" onclick="goScreen('fortune')">🔮 УЗНАТЬ СУДЬБУ →</button>
       </div>
     </div>
   </div>
@@ -368,14 +370,14 @@ textarea{resize:vertical;min-height:70px;}
 
   <!-- ADMIN -->
   <div style="border-top:1px solid #e8e4e0;padding:16px 24px;text-align:center;background:white;">
-    <button class="btn btn-sm" onclick="toggleAdmin()">🔒 Панель именинниц</button>
+    <button class="btn btn-sm" ontouchstart="" onclick="toggleAdmin()">🔒 Панель именинниц</button>
   </div>
   <div class="hidden" id="adminPinBlock" style="padding:20px 24px;background:#fafaf8;text-align:center;">
     <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;margin-bottom:6px;">КОД ДОСТУПА</div>
     <div style="font-size:13px;color:#aaa;margin-bottom:16px;font-style:italic;">Только для именинниц</div>
     <input type="password" id="pinInput" inputmode="numeric" maxlength="6" placeholder="••••" style="width:120px;font-size:22px;text-align:center;letter-spacing:6px;display:block;margin:0 auto 12px;"/>
     <div style="color:#c8102e;font-size:13px;font-style:italic;margin-bottom:8px;display:none;" id="pinError">Неверный код 😅</div>
-    <button class="btn btn-sm" onclick="checkPin()">ВОЙТИ</button>
+    <button class="btn btn-sm" ontouchstart="" onclick="checkPin()">ВОЙТИ</button>
   </div>
   <div class="hidden" id="adminPanel" style="padding:20px 20px 30px;background:#fafaf8;">
     <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;text-align:center;margin-bottom:16px;">ПАНЕЛЬ ИМЕНИННИЦ</div>
@@ -407,7 +409,7 @@ textarea{resize:vertical;min-height:70px;}
       <div id="missionsList"></div>
     </div>
     <div style="text-align:center;margin-top:10px;">
-      <button class="btn btn-sm" style="width:auto;display:inline-block;" onclick="clearAll()">Очистить список</button>
+      <button class="btn btn-sm" style="width:auto;display:inline-block;" ontouchstart="" onclick="clearAll()">Очистить список</button>
     </div>
   </div>
 
@@ -635,8 +637,8 @@ function showSpinResult(item, resultId, person) {
   if (blocked) {
     html += `<div style="font-size:13px;color:#aaa;font-style:italic;">Уже выбрали — покрути ещё раз!</div>`;
   } else {
-    html += `<button class="btn btn-sm" onclick="doReserve('${item.id}', false, '${person}')" style="margin-bottom:8px;">🎁 Забронировать</button>`;
-    html += `<button class="btn btn-sm" onclick="doReserve('${item.id}', true, '${person}')">💌 Свой / в складчину</button>`;
+    html += `<button class="btn btn-sm" ontouchstart="" onclick="doReserve('${item.id}', false, '${person}')" style="margin-bottom:8px;">🎁 Забронировать</button>`;
+    html += `<button class="btn btn-sm" ontouchstart="" onclick="doReserve('${item.id}', true, '${person}')">💌 Свой / в складчину</button>`;
   }
   el.innerHTML = html;
   el.classList.remove('hidden');
