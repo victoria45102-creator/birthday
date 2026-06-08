@@ -10,8 +10,8 @@
 *{box-sizing:border-box}
 body{margin:0;padding:0;background:#f2ede8;-webkit-tap-highlight-color:transparent;}
 #root{min-height:100vh}
-button{-webkit-appearance:none;touch-action:manipulation;}
-input,textarea{-webkit-appearance:none;font-size:16px;}
+button{-webkit-appearance:none;touch-action:manipulation;cursor:pointer;font-family:inherit;}
+input,textarea{-webkit-appearance:none;font-size:16px !important;font-family:inherit;}
 </style>
 </head>
 <body>
@@ -326,6 +326,22 @@ function useCountdown() {
 }
 
 /* ── Btn ── */
+var BTN = {
+  display: "inline-block",
+  border: "1px solid rgba(0,0,0,0.18)",
+  borderRadius: 8,
+  padding: "14px 24px",
+  fontFamily: "'Bebas Neue',sans-serif",
+  fontSize: 17,
+  letterSpacing: 2,
+  cursor: "pointer",
+  background: "rgba(255,255,255,0.85)",
+  color: "#1a1a1a",
+  WebkitAppearance: "none",
+  touchAction: "manipulation",
+  boxShadow: "0 1px 4px rgba(0,0,0,0.07)",
+  transition: "opacity .15s"
+};
 function Btn(_ref) {
   var children = _ref.children,
     onClick = _ref.onClick,
@@ -336,24 +352,8 @@ function Btn(_ref) {
   return /*#__PURE__*/React.createElement("button", {
     onClick: onClick,
     disabled: disabled,
-    style: _objectSpread({
-      display: "block",
+    style: _objectSpread(_objectSpread({}, BTN), {}, {
       width: full ? "100%" : "auto",
-      border: "1px solid ".concat(C.btnBorder),
-      borderRadius: 8,
-      padding: "14px 24px",
-      fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: 17,
-      letterSpacing: 2,
-      cursor: disabled ? "not-allowed" : "pointer",
-      background: C.btnBg,
-      color: C.btnText,
-      backdropFilter: "blur(8px)",
-      WebkitBackdropFilter: "blur(8px)",
-      WebkitAppearance: "none",
-      touchAction: "manipulation",
-      boxShadow: "0 1px 4px rgba(0,0,0,0.08)",
-      transition: "opacity .15s",
       opacity: disabled ? .5 : 1
     }, extra)
   }, children);
@@ -605,25 +605,15 @@ function App() {
   var handleNo = function handleNo() {
     if (noStage < 2) {
       var positions = [{
-        bottom: "0px",
-        left: "0px",
-        right: "auto",
-        top: "auto"
-      }, {
         bottom: "auto",
         right: "0px",
         left: "auto",
-        top: "-60px"
-      }, {
-        bottom: "0px",
-        right: "0px",
-        left: "auto",
-        top: "auto"
+        top: "0px"
       }, {
         bottom: "auto",
         left: "0px",
         right: "auto",
-        top: "-60px"
+        top: "0px"
       }];
       setNoPos(positions[noStage]);
       setNoStage(function (s) {
@@ -1333,12 +1323,26 @@ function App() {
       alignItems: "center",
       gap: 10
     }
-  }, !rsvpDone && /*#__PURE__*/React.createElement(Btn, {
-    full: true,
+  }, !rsvpDone && /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
       return setScreen("rsvp");
+    },
+    style: {
+      display: "block",
+      width: "100%",
+      border: "none",
+      borderRadius: 10,
+      padding: "16px",
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 18,
+      letterSpacing: 2,
+      background: "rgba(0,0,0,0.82)",
+      color: "white",
+      WebkitAppearance: "none",
+      touchAction: "manipulation",
+      cursor: "pointer"
     }
-  }, "\u041F\u041E\u0414\u0422\u0412\u0415\u0420\u0414\u0418\u0422\u042C \u0423\u0427\u0410\u0421\u0422\u0418\u0415 \u2705"), isYes && /*#__PURE__*/React.createElement("div", {
+  }, "\u042F \u041F\u0420\u0418\u0414\u0423! \u2705"), isYes && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 8,
@@ -1466,32 +1470,43 @@ function App() {
       position: "relative",
       minHeight: noStage > 0 ? 140 : 110
     }
-  }, /*#__PURE__*/React.createElement(Btn, {
-    full: true,
-    onClick: handleYes
-  }, "\u2705 \u0411\u0423\u0414\u0415\u041C \u0420\u0410\u0414\u042B \u0412\u0418\u0414\u0415\u0422\u042C \u0422\u0415\u0411\u042F!"), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: handleYes,
+    style: {
+      display: "block",
+      width: "100%",
+      border: "none",
+      borderRadius: 10,
+      padding: "18px",
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 20,
+      letterSpacing: 2,
+      background: "rgba(0,0,0,0.85)",
+      color: "white",
+      WebkitAppearance: "none",
+      touchAction: "manipulation",
+      cursor: "pointer",
+      boxShadow: "0 2px 12px rgba(0,0,0,0.15)"
+    }
+  }, "\u042F \u041F\u0420\u0418\u0414\u0423! \u2705"), /*#__PURE__*/React.createElement("button", {
     onClick: handleNo,
-    style: _objectSpread({
+    style: _objectSpread(_defineProperty({
       border: "1px solid ".concat(C.line),
       borderRadius: 8,
       padding: "13px 20px",
       fontFamily: "'Bebas Neue',sans-serif",
-      fontSize: noStage > 0 ? 13 : 16,
+      fontSize: 15,
       letterSpacing: 1,
       cursor: "pointer",
       background: "rgba(255,255,255,0.8)",
       color: C.mid,
-      backdropFilter: "blur(4px)",
-      WebkitBackdropFilter: "blur(4px)",
       WebkitAppearance: "none",
       touchAction: "manipulation",
-      position: noStage > 0 ? "absolute" : "relative",
-      transition: "all .3s cubic-bezier(.22,1,.36,1)",
-      zIndex: noStage > 0 ? 10 : "auto"
-    }, noStage > 0 ? noPos : {
+      display: "block",
       width: "100%",
-      display: "block"
-    })
+      transition: "all .3s cubic-bezier(.22,1,.36,1)",
+      position: noStage > 0 ? "absolute" : "relative"
+    }, "width", noStage > 0 ? "45%" : "100%"), noStage > 0 ? noPos : {})
   }, noStage === 0 ? "😢 Не смогу" : NO_LABELS[noStage - 1]))), (rsvpDone === null || rsvpDone === void 0 ? void 0 : rsvpDone.choice) === "yes" && screen === "rsvp" && /*#__PURE__*/React.createElement("div", {
     style: {
       padding: "30px 20px",
