@@ -65,7 +65,7 @@ input[type=text], input[type=password], textarea{
   outline:none;
   margin-top:6px;
 }
-textarea{resize:vertical;min-height:70px;}
+textarea{resize:none;height:64px;}
 
 /* ПОЛЯРОИДЫ */
 .photos{position:relative;height:220px;overflow:visible;margin:14px 0 0;}
@@ -124,8 +124,8 @@ textarea{resize:vertical;min-height:70px;}
 
 /* НЕ СМОГУ — сдвиг */
 .no-btn{transition:transform .35s cubic-bezier(.22,1,.36,1);}
-.no-btn.slide-right{transform:translateX(55%)!important;}
-.no-btn.slide-left{transform:translateX(-55%)!important;}
+.no-btn.slide-right{transform:translateX(40%) scale(0.9) !important;}
+.no-btn.slide-left{transform:translateX(-40%) scale(0.9) !important;}
 
 /* КОНФЕТТИ */
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
@@ -506,7 +506,10 @@ function show(id) { document.getElementById(id).classList.remove('hidden'); }
 function hide(id) { document.getElementById(id).classList.add('hidden'); }
 
 // ── RSVP ──
-function submitYes() {
+function submitYes(e) {
+  if (e) e.preventDefault();
+  // blur all inputs first to dismiss keyboard
+  document.activeElement && document.activeElement.blur();
   guestName = document.getElementById('guestName').value.trim() || 'Гость';
   const food = document.getElementById('foodPref').value.trim();
   const drinks = document.getElementById('drinkPref').value.trim();
@@ -529,11 +532,15 @@ function handleNo() {
     btn.textContent = '😅 Подумай хорошо';
     btn.classList.add('slide-right');
     noStage = 1;
+    // Make sure button stays tappable
+    setTimeout(() => { btn.style.transform = 'translateX(38%)'; }, 0);
   } else if (noStage === 1) {
     btn.textContent = '🤔 Подумай ещё раз';
     btn.classList.remove('slide-right');
+    btn.style.transform = '';
     btn.classList.add('slide-left');
     noStage = 2;
+    setTimeout(() => { btn.style.transform = 'translateX(-38%)'; }, 0);
   } else {
     guestName = document.getElementById('guestName').value.trim() || 'Гость';
     const d = {...state};
